@@ -1,0 +1,51 @@
+body{
+   margin:0;
+   font-family:sans-serif;
+   background-color: rgb(18, 32, 104);
+}
+
+.game{
+   width:100%;
+   /* height:100vh; */
+   display:flex;
+   flex-direction:column;
+   align-items:center;
+   box-sizing:border-box;
+}
+
+.enemy-img{
+   width:200px;
+   height:200px;
+   object-fit:cover;
+   margin-top:0px;
+   border-radius: 500px;
+}
+
+.enemy-name{
+   font-size:30px;
+   margin-top:10px;
+   margin-bottom:50px;
+}
+
+.question{
+   font-size:28px;
+   text-align:center;
+   margin-bottom:50px;
+}
+
+.choices{
+   width:90%;
+   display:flex;
+   flex-direction:column;
+   gap:15px;
+}
+
+.choice-btn{
+   width:100%;
+   padding:13px;
+   font-size:18px;
+   border:none;
+   background:#6191a1;
+   color:white;
+   cursor:pointer;
+}
