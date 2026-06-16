@@ -1,28 +1,48 @@
-import { useState } from 'react';
-import './eriasentaku.css';
+import { useNavigate } from 'react-router-dom';
 
-function eriasentaku() {
+function Eriasantaku() {
+  const navigate = useNavigate();
 
-  const goToNextPage = () => {
-    window.location.href = '/Battle1.jsx';
-  }
+  const goToBattle1 = () => {
+    navigate('/battle1');
+  };
 
-  const goToNextPage1 = () => {
-    window.location.href = '';
-  }
+  const goToBattle2 = () => {
+    navigate('/battle2');
+  };
 
-  const [count, setCount] = useState(0);
+  const goToBattle3 = () => {
+    navigate('/battle3');
+  };
+
+    const goToBattle4 = () => {
+    navigate('/battle4');
+  };
+
+  const goToBattle5 = () => {
+    navigate('/battle5');
+  };
 
   return (
-    <div className="App">
-      <h1>エリア選択画面</h1>
-      <p><button className="button" onClick={goToNextPage}>企業活動</button></p>
-      <p><button className="button" onClick={goToNextPage1}>法務</button></p> 
-      <p><button className="button">経営戦略マネジメント</button></p>
-      <p><button className="button">技術選択マネジメント</button></p>
-      <p><button className="button">システム戦略</button></p>
+    <div>
+      <h1>エリア選択</h1>
+      <button onClick={goToBattle1}>
+        企業活動
+      </button>
+      <button onClick={goToBattle2}>
+        法務
+      </button>
+      <button onClick={goToBattle3}>
+        経営戦略マネジメント
+      </button>
+      <button onClick={goToBattle4}>
+        技術選択マネジメント
+      </button>
+      <button onClick={goToBattle5}>
+        システム戦略
+      </button>
     </div>
-  );    
+  );
 }
 
-export default eriasentaku;
+export default Eriasantaku;
