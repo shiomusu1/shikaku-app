@@ -23,23 +23,58 @@ function Eriasantaku() {
     navigate('/battle5');
   };
 
+  const goToBattle6 = () => {
+    navigate('/battle6');
+  };
+
+  const goToBattle7 = () => {
+    navigate('/battle7');
+  };
+
+  const goToBattle8 = () => {
+    navigate('/battle8');
+  };
+
+  const goToBattle9 = () => {
+    navigate('/battle9');
+  };
+
+  const goToBattle10 = () => {
+    navigate('/battle10');
+  };
+
   return (
     <div>
       <h1>エリア選択</h1>
       <button onClick={goToBattle1}>
-        企業活動
+        企業活動・経営
       </button>
       <button onClick={goToBattle2}>
-        法務
+        法務・知的財産
       </button>
       <button onClick={goToBattle3}>
-        経営戦略マネジメント
+        システム戦略
       </button>
       <button onClick={goToBattle4}>
-        技術選択マネジメント
+        プロジェクト管理
       </button>
       <button onClick={goToBattle5}>
-        システム戦略
+        サービスマネジメント
+      </button>
+      <button onClick={goToBattle6}>
+        システム開発
+      </button>
+      <button onClick={goToBattle7}>
+        コンピュータ基礎
+      </button>
+      <button onClick={goToBattle8}>
+        ネットワーク
+      </button>
+      <button onClick={goToBattle9}>
+        データベース
+      </button>
+      <button onClick={goToBattle10}>
+        セキュリティ
       </button>
     </div>
   );
