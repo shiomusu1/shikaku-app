@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import './eriasentaku.css';
 
 function Eriasantaku() {
   const navigate = useNavigate();
@@ -47,34 +48,34 @@ function Eriasantaku() {
     <div>
       <h1>エリア選択</h1>
       <button onClick={goToBattle1}>
-        企業活動・経営
+        ①企業活動・経営
       </button>
       <button onClick={goToBattle2}>
-        法務・知的財産
+        ②法務・知的財産
       </button>
       <button onClick={goToBattle3}>
-        システム戦略
+        ③システム戦略
       </button>
       <button onClick={goToBattle4}>
-        プロジェクト管理
+        ④プロジェクト管理
       </button>
       <button onClick={goToBattle5}>
-        サービスマネジメント
+        ⑤サービスマネジメント
       </button>
       <button onClick={goToBattle6}>
-        システム開発
+        ⑥システム開発
       </button>
       <button onClick={goToBattle7}>
-        コンピュータ基礎
+        ⑦コンピュータ基礎
       </button>
       <button onClick={goToBattle8}>
-        ネットワーク
+        ⑧ネットワーク
       </button>
       <button onClick={goToBattle9}>
-        データベース
+        ⑨データベース
       </button>
       <button onClick={goToBattle10}>
-        セキュリティ
+        ⑩セキュリティ
       </button>
     </div>
   );
