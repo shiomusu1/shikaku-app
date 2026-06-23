@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import './Battle1.css'
+import questions from '../data/battle1'
 
 function Battle1() {
+
+  const quiz = questions[0]
 
   const [result, setResult] = useState('')
 
   function answer(num) {
 
-    if (num === 1) {
+    if (num === quiz.answer) {
       setResult("正解！")
     }
     else {
@@ -27,44 +30,24 @@ function Battle1() {
       />
 
       <div className="enemy-name">
-        Lv.1 企業活動
+        {quiz.title}
       </div>
 
       <div className="question">
-        経営理念を説明したものはどれか
+        {quiz.question}
       </div>
 
       <div className="choices">
-
-        <button
-          className="choice-btn"
-          onClick={() => answer(1)}
-        >
-          企業が活動する際に指針となる基本的な考え方
-        </button>
-
-        <button
-          className="choice-btn"
-          onClick={() => answer(2)}
-        >
-          人・物・金・情報で分類されるもの
-        </button>
-
-        <button
-          className="choice-btn"
-          onClick={() => answer(3)}
-        >
-          長期・中期・短期の別に策定されるもの
-        </button>
-
-        <button
-          className="choice-btn"
-          onClick={() => answer(4)}
-        >
-          社風とも呼ばれるもの
-        </button>
-
-      </div>
+        {quiz.choices.map((choice, index) => (
+    <button
+      key={index}
+      className="choice-btn"
+      onClick={() => answer(index)}
+    >
+      {choice}
+    </button>
+  ))}
+</div>
 
       <h2>{result}</h2>
 
