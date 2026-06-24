@@ -4,7 +4,13 @@ import questions from '../data/battle1'
 
 function Battle1() {
 
-  const quiz = questions[0]
+  const [quizList] = useState(
+    [...questions].sort(() => Math.random() - 0.5)
+  )
+
+  const [currentQuestion, setCurrentQuestion] = useState(0)
+
+  const quiz = quizList[currentQuestion]
 
   const [result, setResult] = useState('')
 
@@ -17,6 +23,14 @@ function Battle1() {
       setResult("不正解！")
     }
 
+  }
+
+  function nextQuestion() {
+    setResult('')
+ 
+    if (currentQuestion < quizList.length - 1) {
+      setCurrentQuestion(currentQuestion + 1)
+    }
   }
 
   return (
@@ -50,6 +64,10 @@ function Battle1() {
 </div>
 
       <h2>{result}</h2>
+
+      <button onClick={nextQuestion}>
+       次の問題
+      </button>
 
     </div>
   )
