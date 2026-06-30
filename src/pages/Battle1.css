@@ -49,3 +49,7 @@ body{
    color:white;
    cursor:pointer;
 }
+
+.question {
+  white-space: pre-line;
+}
