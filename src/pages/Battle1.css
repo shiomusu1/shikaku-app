@@ -1,16 +1,31 @@
 body{
    margin:0;
    font-family:sans-serif;
-   background-color: rgb(78, 47, 23);
 }
 
 .game{
+   font-family: PixelMplus12;
    width:100%;
    /* height:100vh; */
    display:flex;
    flex-direction:column;
    align-items:center;
    box-sizing:border-box;
+
+   background-image: url('/image/background1.jpg');
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-attachment: fixed;/* スクロールしても背景を固定（任意） */
+   min-height: 100vh;
+   /*background-color: rgb(78, 47, 23);*/
+}
+
+.title{
+   color: #ffffff;
+   font-size: 40px;
+   margin-top: 30px;
+   margin-bottom: 20px;
 }
 
 .enemy-img{
@@ -22,9 +37,10 @@ body{
 }
 
 .enemy-name{
+   color: #ffffff;
    font-size:30px;
-   margin-top:10px;
-   margin-bottom:30px;
+   margin-top:8px;
+   margin-bottom:20px;
 }
 
 .question{
@@ -36,6 +52,14 @@ body{
    font-size:28px;
    text-align:center;
    margin-bottom:30px;
+   line-height: 1.2;
+}
+
+.question-image {
+  display: block;
+  max-width: 450px;
+  width: 70%;
+  margin: 15px auto;
 }
 
 .choices{

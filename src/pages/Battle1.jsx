@@ -35,7 +35,7 @@ function Battle1() {
 
   return (
     <div className="game">
-      <h1>テスト</h1>
+      <h1 className="title">ステージ1</h1>
 
       <img
         src="/image/zakokyara.jpg"
@@ -48,8 +48,16 @@ function Battle1() {
       </div>
 
       <div className="question">
-        {quiz.question}
-      </div>
+       <p>{quiz.question}</p>
+
+       {quiz.image && (
+         <img
+           src={quiz.image}
+           alt="問題画像"
+           className="question-image"
+         />
+       )}
+     </div>
 
       <div className="choices">
         {quiz.choices.map((choice, index) => (
