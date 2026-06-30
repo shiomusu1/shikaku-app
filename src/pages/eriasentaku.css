@@ -22,3 +22,8 @@ button {
  position: relative;
  top: 0;
 }
+
+button:hover {
+  background: #4a6b7a;
+  top: -2px;
+}
