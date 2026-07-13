@@ -14,12 +14,14 @@ function Battle1() {
 
   const [result, setResult] = useState('')
 
+  const [enemyHp, setEnemyHp] = useState(100)
+
   function answer(num) {
 
     if (num === quiz.answer) {
       setResult("正解！")
-    }
-    else {
+      setEnemyHp((prevHp) => Math.max(prevHp - 20, 0))
+    }else {
       setResult("不正解！")
     }
 
@@ -45,6 +47,13 @@ function Battle1() {
 
       <div className="enemy-name">
         {quiz.title}
+      </div>
+
+      <div className="hp-bar">
+        <div
+          className="hp-fill"
+          style={{ width: `${enemyHp}%` }}
+        ></div>
       </div>
 
       <div className="question">
