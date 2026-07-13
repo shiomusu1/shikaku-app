@@ -96,6 +96,11 @@ body{
    cursor:pointer;
 }
 
+.choice-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .question {
   white-space: pre-line;
 }

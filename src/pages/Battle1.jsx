@@ -8,6 +8,8 @@ function Battle1() {
     [...questions].sort(() => Math.random() - 0.5)
   )
 
+  const [wrongQuestions, setWrongQuestions] = useState([]);
+
   const [currentQuestion, setCurrentQuestion] = useState(0)
 
   const quiz = quizList[currentQuestion]
@@ -16,24 +18,31 @@ function Battle1() {
 
   const [enemyHp, setEnemyHp] = useState(100)
 
-  function answer(num) {
+  const [answered, setAnswered] = useState(false)
 
-    if (num === quiz.answer) {
-      setResult("正解！")
-      setEnemyHp((prevHp) => Math.max(prevHp - 20, 0))
-    }else {
-      setResult("不正解！")
-    }
+function answer(num) {
 
+  if (answered) return; // 回答済みなら何もしない
+
+  setAnswered(true);
+
+  if (num === quiz.answer) {
+    setResult("正解！");
+    setEnemyHp((prevHp) => Math.max(prevHp - 20, 0));
+  } else {
+    setResult("不正解！");
   }
 
-  function nextQuestion() {
-    setResult('')
- 
-    if (currentQuestion < quizList.length - 1) {
-      setCurrentQuestion(currentQuestion + 1)
-    }
+}
+
+function nextQuestion() {
+  setResult('')
+  setAnswered(false)
+
+  if (currentQuestion < quizList.length - 1) {
+    setCurrentQuestion(currentQuestion + 1)
   }
+}
 
   return (
     <div className="game">
@@ -68,17 +77,18 @@ function Battle1() {
        )}
      </div>
 
-      <div className="choices">
-        {quiz.choices.map((choice, index) => (
-    <button
-      key={index}
-      className="choice-btn"
-      onClick={() => answer(index)}
-    >
-      {choice}
-    </button>
-  ))}
-</div>
+     <div className="choices">
+       {quiz.choices.map((choice, index) => (
+        <button
+          key={index}
+          className="choice-btn"
+          onClick={() => answer(index)}
+          disabled={answered}
+        >
+          {choice}
+        </button>
+      ))}
+    </div>
 
       <h2>{result}</h2>
 
