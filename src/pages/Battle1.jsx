@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './Battle1.css'
 import questions from '../data/battle1'
+import { useNavigate } from "react-router-dom";
 
 function Battle1() {
 
@@ -14,33 +15,63 @@ function Battle1() {
 
   const quiz = quizList[currentQuestion]
 
+  const damage = 100 / quizList.length;
+
   const [result, setResult] = useState('')
 
   const [enemyHp, setEnemyHp] = useState(100)
 
   const [answered, setAnswered] = useState(false)
 
+  const [isDefeated, setIsDefeated] = useState(false)
+
+  const [stageClear, setStageClear] = useState(false)
+
+  const [battleFailed, setBattleFailed] = useState(false)
+
+  const navigate = useNavigate();
+
 function answer(num) {
 
-  if (answered) return; // 回答済みなら何もしない
+  if (answered) return;
 
   setAnswered(true);
 
   if (num === quiz.answer) {
     setResult("正解！");
-    setEnemyHp((prevHp) => Math.max(prevHp - 20, 0));
+    setEnemyHp((prevHp) => {
+       const newHp = Math.max(prevHp - damage, 0);
+
+       if (newHp === 0) {
+         setIsDefeated(true);
+
+         setTimeout(() => {
+            setStageClear(true);
+         }, 1000); // 敵が消えるアニメーションが終わってから表示
+       }
+
+       return newHp;
+     });
   } else {
     setResult("不正解！");
+
+    setWrongQuestions((prev) => [...prev, quiz]);
   }
 
 }
 
 function nextQuestion() {
-  setResult('')
-  setAnswered(false)
+  setResult("");
+  setAnswered(false);
 
   if (currentQuestion < quizList.length - 1) {
-    setCurrentQuestion(currentQuestion + 1)
+    setCurrentQuestion(currentQuestion + 1);
+  } else {
+    // 全問題終了
+
+    if (wrongQuestions.length > 0) {
+      setBattleFailed(true);
+    }
   }
 }
 
@@ -50,7 +81,7 @@ function nextQuestion() {
 
       <img
         src="/image/zakokyara.jpg"
-        className="enemy-img"
+        className={`enemy-img ${isDefeated ? "defeated" : ""}`}
         alt="敵キャラクター"
       />
 
@@ -63,6 +94,10 @@ function nextQuestion() {
           className="hp-fill"
           style={{ width: `${enemyHp}%` }}
         ></div>
+      </div>
+
+      <div className="hp-text">
+         HP {Math.round(enemyHp)} / 100
       </div>
 
       <div className="question">
@@ -95,6 +130,42 @@ function nextQuestion() {
       <button onClick={nextQuestion}>
        次の問題
       </button>
+
+    {stageClear && (
+       <div className="clear-screen">
+         <h1> STAGE CLEAR!! </h1>
+         <h2>パンパカパーン！！</h2>
+
+        <button onClick={() => navigate("/eriasentaku")}>
+           エリア選択へ戻る
+        </button>
+
+  </div>
+)}
+
+     {battleFailed && (
+       <div className="clear-screen">
+         <h1>⚔ BATTLE RESULT</h1>
+
+         <h2>今回は敵を倒せなかった…</h2>
+
+         <p>❌ 間違えた問題：{wrongQuestions.length}問</p>
+
+         <p>
+           苦手問題を復習して
+           <br />
+           再挑戦しよう！
+         </p>
+
+         <button>
+           📚 苦手問題に挑戦
+         </button>
+
+         <button onClick={() => navigate("/eriasentaku")}>
+           🗺 エリア選択へ戻る
+         </button>
+       </div>
+)}
 
     </div>
   )
