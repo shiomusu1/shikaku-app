@@ -1,11 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import './eriasentaku.css';
 
-function Eriasantaku() {
+function Eriasentaku() {
   const navigate = useNavigate();
 
   const goToBattle1 = () => {
-    navigate('/battle1');
+    navigate('/battle_or_weak1');
   };
 
   const goToBattle2 = () => {
@@ -77,8 +77,11 @@ function Eriasantaku() {
       <button onClick={goToBattle10}>
         ⑩セキュリティ
       </button>
+      <button onClick={() => navigate("/start")}>
+        モード選択画面へ戻る
+      </button>
     </div>
   );
 }
 
-export default Eriasantaku;
+export default Eriasentaku;

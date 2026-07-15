@@ -162,8 +162,13 @@ function nextQuestion() {
          </button>
 
          <button onClick={() => navigate("/eriasentaku")}>
-           🗺 エリア選択へ戻る
+           🗺 エリア選択画面へ戻る
          </button>
+
+         <button onClick={() => navigate("/start")}>
+              モード選択画面へ戻る
+         </button>
+         
        </div>
 )}
 
