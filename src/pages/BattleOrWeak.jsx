@@ -14,7 +14,7 @@ function BattleOrWeak() {
         戦闘
       </button>
 
-      <button onClick={() => navigate(`/weak${area}`)}>
+      <button onClick={() => navigate(`/weak/${area}`)}>
         苦手問題
       </button>
 
