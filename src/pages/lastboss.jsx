@@ -12,7 +12,7 @@ function LastBoss() {
       <button onClick={() => navigate("/lastbossweak")}>
         苦手問題
       </button>
-      <button onClick={() => navigate("/start")}>
+      <button onClick={() => navigate("/Start")}>
         スタート画面へ戻る
       </button>
     </div>

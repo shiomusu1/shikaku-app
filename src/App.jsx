@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Start from './pages/start';
-import Eriasentaku from './pages/eriasentaku';
+import Start from './pages/Start';
+import Eriasentaku from './pages/Eriasentaku';
 import Battle1 from './pages/Battle1';
-import BattleOrWeak1 from './pages/battle_or_weak1';
-import Weak1 from './pages/weak1';
+import BattleOrWeak from './pages/BattleOrWeak';
+import Weak from './pages/Weak';
 
 import Boss from './pages/boss';
 import Boss1 from './pages/boss1';
@@ -21,9 +21,9 @@ function App() {
         <Route path="/start" element={<Start />} />
 
         <Route path="/eriasentaku" element={<Eriasentaku />} />
-        <Route path="/battle_or_weak1" element={<BattleOrWeak1 />} />      
+        <Route path="/battleorweak" element={<BattleOrWeak />} />      
         <Route path="/battle1" element={<Battle1 />} />
-        <Route path="/weak1" element={<Weak1 />} />
+        <Route path="/weak" element={<Weak />} />
 
         <Route path="/boss" element={<Boss />} />
         <Route path="/boss1" element={<Boss1 />} />
@@ -33,7 +33,7 @@ function App() {
         <Route path="/lastboss" element={<LastBoss />} />
         <Route path="/lastbossbattle" element={<LastBossBattle />} />
         <Route path="/lastbossweak" element={<LastBossWeak />} />
-        
+
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function Weak1() {
+function Weak() {
   const navigate = useNavigate();
   
   return (
@@ -10,4 +10,4 @@ function Weak1() {
   );
 }
 
-export default Weak1;
+export default Weak;

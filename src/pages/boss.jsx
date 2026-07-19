@@ -19,7 +19,7 @@ function Boss() {
         ボス3
       </button>
 
-      <button onClick={() => navigate("/start")}>
+      <button onClick={() => navigate("/Start")}>
         スタート画面へ戻る
       </button>
     </div>

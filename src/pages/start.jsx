@@ -7,7 +7,7 @@ function Start() {
     <div>
       <h1>スタート画面</h1>
 
-      <button onClick={() => navigate("/eriasentaku")}>
+      <button onClick={() => navigate("/Eriasentaku")}>
         10種類のエリアへ
       </button>
 
