@@ -1,79 +1,62 @@
-import { useState } from 'react'
-import './Battle1.css'
-import questions from '../data/battle1'
+// Battle1.jsx（完成版の骨組み）
+// ※ questions の構造は現在のままで利用できます。
+import { useState } from "react";
+import "./Battle1.css";
+import questions from "../data/battle1";
 import { useNavigate } from "react-router-dom";
 
 function Battle1() {
-
-  const [quizList] = useState(
-    [...questions].sort(() => Math.random() - 0.5)
-  )
-
-  const [wrongQuestions, setWrongQuestions] = useState([]);
-
-  const [currentQuestion, setCurrentQuestion] = useState(0)
-
-  const quiz = quizList[currentQuestion]
-
-  const damage = 100 / quizList.length;
-
-  const [result, setResult] = useState('')
-
-  const [enemyHp, setEnemyHp] = useState(100)
-
-  const [answered, setAnswered] = useState(false)
-
-  const [isDefeated, setIsDefeated] = useState(false)
-
-  const [stageClear, setStageClear] = useState(false)
-
-  const [battleFailed, setBattleFailed] = useState(false)
-
+  
   const navigate = useNavigate();
 
-function answer(num) {
+  const [quizList] = useState([...questions].sort(() => Math.random() - 0.5));
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [wrongQuestions, setWrongQuestions] = useState([]);
+  const [result, setResult] = useState("");
+  const [answered, setAnswered] = useState(false);
 
-  if (answered) return;
+  const [enemyHp, setEnemyHp] = useState(100);
+  const [isDefeated, setIsDefeated] = useState(false);
+  const [stageClear, setStageClear] = useState(false);
+  const [battleFailed, setBattleFailed] = useState(false);
 
-  setAnswered(true);
+  const quiz = quizList[currentQuestion];
+  const damage = 100 / quizList.length;
 
-  if (num === quiz.answer) {
-    setResult("正解！");
-    setEnemyHp((prevHp) => {
-       const newHp = Math.max(prevHp - damage, 0);
+  function answer(index) {
+    if (answered) return;
 
-       if (newHp === 0) {
-         setIsDefeated(true);
+    setAnswered(true);
 
-         setTimeout(() => {
-            setStageClear(true);
-         }, 1000); // 敵が消えるアニメーションが終わってから表示
-       }
-
-       return newHp;
-     });
-  } else {
-    setResult("不正解！");
-
-    setWrongQuestions((prev) => [...prev, quiz]);
-  }
-
-}
-
-function nextQuestion() {
-  setResult("");
-  setAnswered(false);
-
-  if (currentQuestion < quizList.length - 1) {
-    setCurrentQuestion(currentQuestion + 1);
-  } else {
-    // 全問題終了
-
-    if (wrongQuestions.length > 0) {
-      setBattleFailed(true);
+    if (index === quiz.answer) {
+      setResult("正解！");
+      setEnemyHp(prev => Math.max(prev - damage, 0));
+    } else {
+      setResult("不正解！");
+      setWrongQuestions(prev => [...prev, quiz]);
     }
   }
-}
+
+  function nextQuestion() {
+    if (currentQuestion < quizList.length - 1) {
+      setCurrentQuestion(prev => prev + 1);
+      setAnswered(false);
+      setResult("");
+      return;
+    }
+
+    // 全問終了
+    if (wrongQuestions.length === 0) {
+      setIsDefeated(true);
+      setTimeout(() => {
+        setStageClear(true);
+      }, 800);
+    } else {
+      setTimeout(() => {
+        setBattleFailed(true);
+      }, 500);
+    }
+  }
 
   return (
     <div className="game">
@@ -81,99 +64,89 @@ function nextQuestion() {
 
       <img
         src="/image/zakokyara.jpg"
+        alt="敵"
         className={`enemy-img ${isDefeated ? "defeated" : ""}`}
-        alt="敵キャラクター"
       />
 
-      <div className="enemy-name">
-        {quiz.title}
-      </div>
+      <div className="enemy-name">{quiz.title}</div>
 
       <div className="hp-bar">
-        <div
-          className="hp-fill"
-          style={{ width: `${enemyHp}%` }}
-        ></div>
+        <div className="hp-fill" style={{ width: `${enemyHp}%` }} />
       </div>
 
       <div className="hp-text">
-         HP {Math.round(enemyHp)} / 100
+        HP {Math.round(enemyHp)} / 100
       </div>
 
       <div className="question">
-       <p>{quiz.question}</p>
+        <p>{quiz.question}</p>
 
-       {quiz.image && (
-         <img
-           src={quiz.image}
-           alt="問題画像"
-           className="question-image"
-         />
-       )}
-     </div>
+        {quiz.image && (
+          <img
+            src={quiz.image}
+            alt="問題"
+            className="question-image"
+          />
+        )}
+      </div>
 
-     <div className="choices">
-       {quiz.choices.map((choice, index) => (
-        <button
-          key={index}
-          className="choice-btn"
-          onClick={() => answer(index)}
-          disabled={answered}
-        >
-          {choice}
-        </button>
-      ))}
-    </div>
+      <div className="choices">
+        {quiz.choices.map((choice, index) => (
+          <button
+            key={index}
+            className="choice-btn"
+            disabled={answered}
+            onClick={() => answer(index)}
+          >
+            {choice}
+          </button>
+        ))}
+      </div>
 
       <h2>{result}</h2>
 
-      <button onClick={nextQuestion}>
-       次の問題
-      </button>
-
-    {stageClear && (
-       <div className="clear-screen">
-         <h1> STAGE CLEAR!! </h1>
-         <h2>パンパカパーン！！</h2>
-
-        <button onClick={() => navigate("/eriasentaku")}>
-           エリア選択へ戻る
+      {!stageClear && !battleFailed && (
+        <button onClick={nextQuestion}>
+          {currentQuestion === quizList.length - 1 ? "結果を見る" : "次の問題"}
         </button>
+      )}
 
-  </div>
-)}
+      {stageClear && (
+        <div className="clear-screen">
+          <h1>STAGE CLEAR!!!!!!!!!</h1>
+          <h2>敵を倒した！！</h2>
+          <p>全問正解おめでとう♪<br/>
+          これで君も企業活動・経営マスター！！</p>
 
-     {battleFailed && (
-       <div className="clear-screen">
-         <h1>⚔ BATTLE RESULT</h1>
+          <button onClick={() => navigate("/eriasentaku")}>
+            エリア選択へ戻る
+          </button>
+        </div>
+      )}
 
-         <h2>今回は敵を倒せなかった…</h2>
+      {battleFailed && (
+        <div className="clear-screen">
+          <h1>GAME OVER</h1>
+          <h2>今回は敵を倒せなかった…</h2>
+          <p>❌ 間違えた問題：{wrongQuestions.length}問</p>
+          <p>
+            苦手問題を復習して
+            <br />
+            再挑戦しよう！
+          </p>
 
-         <p>❌ 間違えた問題：{wrongQuestions.length}問</p>
+          <button>
+            📚 苦手問題に挑戦
+          </button>
 
-         <p>
-           苦手問題を復習して
-           <br />
-           再挑戦しよう！
-         </p>
+          <button onClick={() => navigate("/eriasentaku")}>
+            🗺 エリア選択へ戻る
+          </button>
 
-         <button>
-           📚 苦手問題に挑戦
-         </button>
-
-         <button onClick={() => navigate("/eriasentaku")}>
-           🗺 エリア選択画面へ戻る
-         </button>
-
-         <button onClick={() => navigate("/start")}>
-              モード選択画面へ戻る
-         </button>
-         
-       </div>
-)}
-
+        </div>
+      )}
     </div>
-  )
+  );
 }
 
-export default Battle1
+export default Battle1;
