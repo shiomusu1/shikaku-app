@@ -10,7 +10,7 @@ function BattleOrWeak() {
     <div>
       <h1> エリア{area} モード選択</h1>
 
-      <button onClick={() => navigate(`/battle${area}`)}>
+      <button onClick={() => navigate(`/battle/${area}`)}>
         戦闘
       </button>
 

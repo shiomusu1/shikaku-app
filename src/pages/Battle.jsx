@@ -1,15 +1,37 @@
 // Battle1.jsx（完成版の骨組み）
 // ※ questions の構造は現在のままで利用できます。
 import { useState } from "react";
-import "./Battle1.css";
-import questions from "../data/battle1";
-import { useNavigate } from "react-router-dom";
+import "./Battle.css";
 
-function Battle1() {
+import battle1 from "../data/battle1";
+
+
+import { useNavigate, useParams } from "react-router-dom";
+
+function Battle() {
   
   const navigate = useNavigate();
 
-  const [quizList] = useState([...questions].sort(() => Math.random() - 0.5));
+  // URLからステージ番号を取得
+  const { stageId } = useParams();
+
+  // 各ステージの問題データ
+  const questionData = {
+    1: battle1,
+
+  };
+
+  // 現在のステージの問題を取得
+  const questions = questionData[stageId];
+
+  const [quizList] = useState(() =>
+  questions
+    ? [...questions].sort(() => Math.random() - 0.5)
+    : []
+  );
+
+  // 各ステージの問題データ
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [wrongQuestions, setWrongQuestions] = useState([]);
   const [result, setResult] = useState("");
@@ -20,7 +42,13 @@ function Battle1() {
   const [stageClear, setStageClear] = useState(false);
   const [battleFailed, setBattleFailed] = useState(false);
 
+  if (!questions) {
+    return <h1>問題データが見つかりません</h1>;
+  }
+
   const quiz = quizList[currentQuestion];
+
+  // 1問正解したときのダメージ
   const damage = 100 / quizList.length;
 
   function answer(index) {
@@ -33,7 +61,10 @@ function Battle1() {
       setEnemyHp(prev => Math.max(prev - damage, 0));
     } else {
       setResult("不正解！");
-      setWrongQuestions(prev => [...prev, quiz]);
+      setWrongQuestions(prev => [
+        ...prev, 
+        quiz
+      ]);
     }
   }
 
@@ -71,8 +102,9 @@ function Battle1() {
       <div className="enemy-name">{quiz.title}</div>
 
       <div className="hp-bar">
-        <div className="hp-fill" 
-             style={{ width: `${enemyHp}%` }} 
+
+      <div className="hp-fill" 
+           style={{ width: `${enemyHp}%` }} 
         />
       </div>
 
@@ -123,10 +155,21 @@ function Battle1() {
 
       {stageClear && (
         <div className="clear-screen">
-          <h1>STAGE CLEAR!!!!!!!!!</h1>
-          <h2>敵を倒した！！</h2>
-          <p>全問正解おめでとう♪<br/>
-          これで君も企業活動・経営マスター！！</p>
+          <h1>
+            STAGE CLEAR!!!!!!!!!
+          </h1>
+
+          <h2>
+            敵を倒した！！
+          </h2>
+
+          <p>
+            全問正解おめでとう♪
+            <br/>
+
+            これで君も
+            企業活動・経営マスター！！
+          </p>
 
           <button onClick={() => navigate("/eriasentaku")}>
             エリア選択へ戻る
@@ -136,18 +179,17 @@ function Battle1() {
 
       {battleFailed && (
         <div className="clear-screen">
-          <h1>GAME OVER</h1>
-          <h2>今回は敵を倒せなかった…</h2>
-          <p>❌ 間違えた問題：{wrongQuestions.length}問</p>
-          <p>
-            苦手問題を復習して
-            <br />
-            再挑戦しよう！
-          </p>
+          <h1>
+            GAME OVER
+          </h1>
 
-          <button>
-            📚 苦手問題に挑戦
-          </button>
+          <h2>
+            今回は敵を倒せなかった…
+          </h2>
+
+          <p>
+            ❌ 間違えた問題：{wrongQuestions.length}問
+          </p>
 
          <p>
            苦手問題を復習して
@@ -178,4 +220,4 @@ function Battle1() {
   );
 }
 
-export default Battle1;
+export default Battle;
