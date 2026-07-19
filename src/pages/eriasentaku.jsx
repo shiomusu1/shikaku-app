@@ -78,7 +78,8 @@ function Eriasentaku() {
         ⑩セキュリティ
       </button>
       <button onClick={() => navigate("/start")}>
-        モード選択画面へ戻る
+        モード選択画面
+        へ戻る
       </button>
     </div>
   );
