@@ -4,45 +4,65 @@ import './eriasentaku.css';
 function Eriasentaku() {
   const navigate = useNavigate();
 
-  const goToBattle1 = () => {
-    navigate('/battle_or_weak1');
-  };
+const goToBattle1 = () => {
+  navigate('/battleorweak', {
+    state: { area: 1 },
+  });
+};
 
-  const goToBattle2 = () => {
-    navigate('/battle2');
-  };
+const goToBattle2 = () => {
+  navigate('/battleorweak', {
+    state: { area: 2 },
+  });
+};
 
-  const goToBattle3 = () => {
-    navigate('/battle3');
-  };
+const goToBattle3 = () => {
+  navigate('/battleorweak', {
+    state: { area: 3 },
+  });
+};
 
-    const goToBattle4 = () => {
-    navigate('/battle4');
-  };
+const goToBattle4 = () => {
+  navigate('/battleorWweak', {
+    state: { area: 4 },
+  });
+};
 
-  const goToBattle5 = () => {
-    navigate('/battle5');
-  };
+const goToBattle5 = () => {
+  navigate('/battleorweak', {
+    state: { area: 5 },
+  });
+};
 
-  const goToBattle6 = () => {
-    navigate('/battle6');
-  };
+const goToBattle6 = () => {
+  navigate('/battleorweak', {
+    state: { area: 6 },
+  });
+};
 
-  const goToBattle7 = () => {
-    navigate('/battle7');
-  };
+const goToBattle7 = () => {
+  navigate('/battleorweak', {
+    state: { area: 7 },
+  });
+};
 
-  const goToBattle8 = () => {
-    navigate('/battle8');
-  };
+const goToBattle8 = () => {
+  navigate('/battleorweak', {
+    state: { area: 8 },
+  });
+};
 
-  const goToBattle9 = () => {
-    navigate('/battle9');
-  };
+const goToBattle9 = () => {
+  navigate('/battleorweak', {
+    state: { area: 9 },
+  });
+};
 
-  const goToBattle10 = () => {
-    navigate('/battle10');
-  };
+const goToBattle10 = () => {
+  navigate('/battleorweak', {
+    state: { area: 10 },
+  });
+};
 
   return (
     <div>
@@ -78,7 +98,7 @@ function Eriasentaku() {
         ⑩セキュリティ
       </button>
       <button onClick={() => navigate("/start")}>
-        モード選択画面へ戻る
+        スタート画面へ戻る
       </button>
     </div>
   );

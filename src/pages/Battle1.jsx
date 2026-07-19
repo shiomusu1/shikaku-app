@@ -71,7 +71,9 @@ function Battle1() {
       <div className="enemy-name">{quiz.title}</div>
 
       <div className="hp-bar">
-        <div className="hp-fill" style={{ width: `${enemyHp}%` }} />
+        <div className="hp-fill" 
+             style={{ width: `${enemyHp}%` }} 
+        />
       </div>
 
       <div className="hp-text">
@@ -106,9 +108,17 @@ function Battle1() {
       <h2>{result}</h2>
 
       {!stageClear && !battleFailed && (
+        <>
         <button onClick={nextQuestion}>
-          {currentQuestion === quizList.length - 1 ? "結果を見る" : "次の問題"}
+          {currentQuestion === quizList.length - 1 
+          ? "結果を見る" 
+          : "次の問題"}
         </button>
+
+        <button onClick={() => navigate("/start")}>
+           スタート画面へ戻る
+        </button>
+       </>
       )}
 
       {stageClear && (
@@ -139,11 +149,30 @@ function Battle1() {
             📚 苦手問題に挑戦
           </button>
 
-          <button onClick={() => navigate("/eriasentaku")}>
-            🗺 エリア選択へ戻る
-          </button>
+         <p>
+           苦手問題を復習して
+           <br />
+           再挑戦しよう！
+         </p>
 
+         <button>
+           📚 苦手問題に挑戦
+         </button>
+
+         <button onClick={() => navigate("/battleorweak")}>
+              もう一度
+         </button>
+
+         <button onClick={() => navigate("/eriasentaku")}>
+           🗺 エリア選択画面へ戻る
+         </button>
+
+         <button onClick={() => navigate("/start")}>
+              スタート画面へ戻る
+         </button>
+         
         </div>
+        
       )}
     </div>
   );

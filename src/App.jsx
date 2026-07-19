@@ -1,15 +1,17 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Start from './pages/start';
-import Eriasentaku from './pages/eriasentaku';
+import Start from './pages/Start';
+import Eriasentaku from './pages/Eriasentaku';
 import Battle1 from './pages/Battle1';
-import BattleOrWeak1 from './pages/battle_or_weak1';
-import Weak1 from './pages/weak1';
+import BattleOrWeak from './pages/BattleOrWeak';
+import Weak1 from './pages/Weak1';
 
-import Boss from './pages/boss';
-import Boss1 from './pages/boss1';
-import Boss2 from './pages/boss2';
-import Boss3 from './pages/boss3';
+import Boss from './pages/Boss';
+import BossBattleOrWeak from './pages/BossBattleOrWeak';
+import BossBattle1 from './pages/BossBattle1';
+import BossWeak1 from './pages/BossWeak1';
 import LastBoss from './pages/lastboss';
+import LastBossBattle from './pages/lastbossbattle';
+import LastBossWeak from './pages/lastbossweak';
 
 function App() {
   return (
@@ -19,16 +21,20 @@ function App() {
         <Route path="/start" element={<Start />} />
 
         <Route path="/eriasentaku" element={<Eriasentaku />} />
-        <Route path="/battle_or_weak1" element={<BattleOrWeak1 />} />      
+        <Route path="/battleorweak" element={<BattleOrWeak />} />      
         <Route path="/battle1" element={<Battle1 />} />
         <Route path="/weak1" element={<Weak1 />} />
 
         <Route path="/boss" element={<Boss />} />
-        <Route path="/boss1" element={<Boss1 />} />
-        <Route path="/boss2" element={<Boss2 />} />
-        <Route path="/boss3" element={<Boss3 />} />
+        <Route path="/bossbattleorweak" element={<BossBattleOrWeak />} />
+        <Route path="/bossbattle1" element={<BossBattle1 />} />
+        <Route path="/bossweak1" element={<BossWeak1 />} />
+
 
         <Route path="/lastboss" element={<LastBoss />} />
+        <Route path="/lastbossbattle" element={<LastBossBattle />} />
+        <Route path="/lastbossweak" element={<LastBossWeak />} />
+
       </Routes>
     </BrowserRouter>
   );
