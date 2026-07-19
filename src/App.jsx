@@ -10,6 +10,8 @@ import Boss1 from './pages/boss1';
 import Boss2 from './pages/boss2';
 import Boss3 from './pages/boss3';
 import LastBoss from './pages/lastboss';
+import LastBossBattle from './pages/lastbossbattle';
+import LastBossWeak from './pages/lastbossweak';
 
 function App() {
   return (
@@ -29,6 +31,9 @@ function App() {
         <Route path="/boss3" element={<Boss3 />} />
 
         <Route path="/lastboss" element={<LastBoss />} />
+        <Route path="/lastbossbattle" element={<LastBossBattle />} />
+        <Route path="/lastbossweak" element={<LastBossWeak />} />
+        
       </Routes>
     </BrowserRouter>
   );

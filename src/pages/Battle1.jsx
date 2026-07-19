@@ -139,6 +139,9 @@ function nextQuestion() {
         <button onClick={() => navigate("/eriasentaku")}>
            エリア選択へ戻る
         </button>
+        <button onClick={() => navigate("/start")}>
+           スタート画面へ戻る
+        </button>
 
   </div>
 )}
@@ -161,12 +164,16 @@ function nextQuestion() {
            📚 苦手問題に挑戦
          </button>
 
+         <button onClick={() => navigate("/battle_or_weak1")}>
+              もう一度
+         </button>
+
          <button onClick={() => navigate("/eriasentaku")}>
            🗺 エリア選択画面へ戻る
          </button>
 
          <button onClick={() => navigate("/start")}>
-              モード選択画面へ戻る
+              スタート画面へ戻る
          </button>
          
        </div>

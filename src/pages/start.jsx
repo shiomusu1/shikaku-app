@@ -5,7 +5,7 @@ function Start() {
 
   return (
     <div>
-      <h1>モード選択</h1>
+      <h1>スタート画面</h1>
 
       <button onClick={() => navigate("/eriasentaku")}>
         10種類のエリアへ

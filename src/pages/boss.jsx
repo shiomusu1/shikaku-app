@@ -20,7 +20,7 @@ function Boss() {
       </button>
 
       <button onClick={() => navigate("/start")}>
-        モード選択画面へ戻る
+        スタート画面へ戻る
       </button>
     </div>
 )}
