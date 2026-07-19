@@ -7,16 +7,16 @@ function Start() {
     <div>
       <h1>スタート画面</h1>
 
-      <button onClick={() => navigate("/Eriasentaku")}>
-        10種類のエリアへ
+      <button onClick={() => navigate("/eriasentaku")}>
+        10種類のエリア選択画面へ
       </button>
 
       <button onClick={() => navigate("/boss")}>
-        三種類のボス戦へ
+        三種類のボス選択画面へ
       </button>
 
       <button onClick={() => navigate("/lastboss")}>
-        ラストボス戦へ
+        ラストボス選択画面へ
       </button>
     </div>
   );

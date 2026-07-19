@@ -136,10 +136,10 @@ function nextQuestion() {
          <h1> STAGE CLEAR!! </h1>
          <h2>パンパカパーン！！</h2>
 
-        <button onClick={() => navigate("/Eriasentaku")}>
+        <button onClick={() => navigate("/eriasentaku")}>
            エリア選択へ戻る
         </button>
-        <button onClick={() => navigate("/Start")}>
+        <button onClick={() => navigate("/start")}>
            スタート画面へ戻る
         </button>
 
@@ -164,15 +164,15 @@ function nextQuestion() {
            📚 苦手問題に挑戦
          </button>
 
-         <button onClick={() => navigate("/BattleOrWeak")}>
+         <button onClick={() => navigate("/battleorweak")}>
               もう一度
          </button>
 
-         <button onClick={() => navigate("/Eriasentaku")}>
+         <button onClick={() => navigate("/eriasentaku")}>
            🗺 エリア選択画面へ戻る
          </button>
 
-         <button onClick={() => navigate("/Start")}>
+         <button onClick={() => navigate("/start")}>
               スタート画面へ戻る
          </button>
          

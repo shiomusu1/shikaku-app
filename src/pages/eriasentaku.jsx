@@ -1,65 +1,65 @@
 import { useNavigate } from 'react-router-dom';
-import './Eriasentaku.css';
+import './eriasentaku.css';
 
 function Eriasentaku() {
   const navigate = useNavigate();
 
 const goToBattle1 = () => {
-  navigate('/BattleOrWeak', {
+  navigate('/battleorweak', {
     state: { area: 1 },
   });
 };
 
 const goToBattle2 = () => {
-  navigate('/BattleOrWeak', {
+  navigate('/battleorweak', {
     state: { area: 2 },
   });
 };
 
 const goToBattle3 = () => {
-  navigate('/BattleOrWeak', {
+  navigate('/battleorweak', {
     state: { area: 3 },
   });
 };
 
 const goToBattle4 = () => {
-  navigate('/BattleOrWeak', {
+  navigate('/battleorWweak', {
     state: { area: 4 },
   });
 };
 
 const goToBattle5 = () => {
-  navigate('/BattleOrWeak', {
+  navigate('/battleorweak', {
     state: { area: 5 },
   });
 };
 
 const goToBattle6 = () => {
-  navigate('/BattleOrWeak', {
+  navigate('/battleorweak', {
     state: { area: 6 },
   });
 };
 
 const goToBattle7 = () => {
-  navigate('/BattleOrWeak', {
+  navigate('/battleorweak', {
     state: { area: 7 },
   });
 };
 
 const goToBattle8 = () => {
-  navigate('/BattleOrWeak', {
+  navigate('/battleorweak', {
     state: { area: 8 },
   });
 };
 
 const goToBattle9 = () => {
-  navigate('/BattleOrWeak', {
+  navigate('/battleorweak', {
     state: { area: 9 },
   });
 };
 
 const goToBattle10 = () => {
-  navigate('/BattleOrWeak', {
+  navigate('/battleorweak', {
     state: { area: 10 },
   });
 };
@@ -97,7 +97,7 @@ const goToBattle10 = () => {
       <button onClick={goToBattle10}>
         ⑩セキュリティ
       </button>
-      <button onClick={() => navigate("/Start")}>
+      <button onClick={() => navigate("/start")}>
         スタート画面へ戻る
       </button>
     </div>

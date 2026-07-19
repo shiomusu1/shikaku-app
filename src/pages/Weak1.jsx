@@ -5,7 +5,7 @@ function Weak1() {
   
   return (
     <div>
-      <h1>苦手問題</h1>
+      <h1>エリア１苦手問題</h1>
     </div>
   );
 }
