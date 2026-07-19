@@ -3,7 +3,7 @@ import Start from './pages/Start';
 import Eriasentaku from './pages/Eriasentaku';
 import Battle1 from './pages/Battle1';
 import BattleOrWeak from './pages/BattleOrWeak';
-import Weak from './pages/Weak';
+import Weak1 from './pages/Weak1';
 
 import Boss from './pages/boss';
 import Boss1 from './pages/boss1';
@@ -23,7 +23,7 @@ function App() {
         <Route path="/eriasentaku" element={<Eriasentaku />} />
         <Route path="/battleorweak" element={<BattleOrWeak />} />      
         <Route path="/battle1" element={<Battle1 />} />
-        <Route path="/weak" element={<Weak />} />
+        <Route path="/weak1" element={<Weak1 />} />
 
         <Route path="/boss" element={<Boss />} />
         <Route path="/boss1" element={<Boss1 />} />

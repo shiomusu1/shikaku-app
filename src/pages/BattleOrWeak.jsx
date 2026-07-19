@@ -1,17 +1,20 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function BattleOrWeak() {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const area = location.state?.area;
 
   return (
     <div>
-      <h1>モード選択</h1>
+      <h1>モード選択（エリア{area}）</h1>
 
-      <button onClick={() => navigate("/Battle1")}>
+      <button onClick={() => navigate(`/Battle${area}`)}>
         戦闘
       </button>
 
-      <button onClick={() => navigate("/Weak")}>
+      <button onClick={() => navigate(`/Weak${area}`)}>
         苦手問題
       </button>
 
