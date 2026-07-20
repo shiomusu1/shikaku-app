@@ -7,8 +7,8 @@ import Weak from './pages/Weak';
 
 import Boss from './pages/Boss';
 import BossBattleOrWeak from './pages/BossBattleOrWeak';
-import BossBattle1 from './pages/BossBattle1';
-import BossWeak1 from './pages/BossWeak1';
+import BossBattle from './pages/BossBattle';
+import BossWeak from './pages/BossWeak';
 import LastBoss from './pages/lastboss';
 import LastBossBattle from './pages/lastbossbattle';
 import LastBossWeak from './pages/lastbossweak';
@@ -27,8 +27,8 @@ function App() {
 
         <Route path="/boss" element={<Boss />} />
         <Route path="/bossbattleorweak" element={<BossBattleOrWeak />} />
-        <Route path="/bossbattle1" element={<BossBattle1 />} />
-        <Route path="/bossweak1" element={<BossWeak1 />} />
+        <Route path="/boss/:bossId" element={<BossBattle />} />
+        <Route path="/bossweak/:bossId" element={<BossWeak />} />
 
 
         <Route path="/lastboss" element={<LastBoss />} />

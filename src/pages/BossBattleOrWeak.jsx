@@ -10,11 +10,11 @@ function BoosBattleOrweak() {
     <div>
       <h1>ボス{boss} モード選択</h1>
 
-      <button onClick={() => navigate(`/bossbattle${boss}`)}>
+      <button onClick={() => navigate(`/boss/${boss}`)}>
         戦闘
       </button>
 
-      <button onClick={() => navigate(`/bossweak${boss}`)}>
+      <button onClick={() => navigate(`/Bossweak/${boss}`)}>
         苦手問題
       </button>
 

@@ -1,0 +1,16 @@
+const bossStrategy = [
+  // ストラテジ系の問題
+    {
+    title: "ストラテジ系ボス",
+    question: "問題文",
+    choices: [
+      "選択肢1",
+      "選択肢2",
+      "選択肢3",
+      "選択肢4",
+    ],
+    answer: 0,
+  },
+];
+
+export default bossStrategy;

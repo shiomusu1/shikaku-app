@@ -1,7 +1,7 @@
 const questions = [
 
   {
-    title: "システム戦略",
+    title: "プロジェクト管理",
     question:`""`,
     choices: [
       "",
@@ -13,7 +13,7 @@ const questions = [
   },
 
   {
-    title: "システム戦略",
+    title: "プロジェクト管理",
     question:`""`,
     choices: [
       "",
@@ -25,7 +25,7 @@ const questions = [
   },
 
   {
-    title: "システム戦略",
+    title: "プロジェクト管理",
     question:`""`,
     choices: [
       "",
@@ -37,7 +37,7 @@ const questions = [
   },
 
   {
-    title: "システム戦略",
+    title: "プロジェクト管理",
     question:`""`,
     choices: [
       "",

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-function BossWeak1() {
+function BossWeak() {
   const navigate = useNavigate();
   
   return (
@@ -10,4 +10,4 @@ function BossWeak1() {
   );
 }
 
-export default BossWeak1;
+export default BossWeak;
