@@ -310,9 +310,10 @@ function saveWrongQuestion(question) {
            苦手問題に挑戦
          </button>
 
-         <button onClick={() => navigate("/battleorweak")}>
-            もう一度
-         </button>
+        <button onClick={() => window.location.reload()}>
+          もう一度
+        
+        </button>
 
          <button onClick={() => navigate("/eriasentaku")}>
            🗺 エリア選択画面へ戻る

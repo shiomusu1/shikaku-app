@@ -26,15 +26,15 @@ function Boss() {
       <h1>ボス選択</h1>
 
       <button onClick={goToBoss1}>
-        ボス1
+        ストラテジ系
       </button>
 
       <button onClick={goToBoss2}>
-        ボス2
+        マネジメント系
       </button>
 
       <button onClick={goToBoss3}>
-        ボス3
+        テクノロジ系
       </button>
 
       <button onClick={() => navigate("/start")}>
