@@ -268,8 +268,8 @@ function saveWrongQuestion(question) {
             企業活動・経営マスター！！
           </p>
 
-          <button onClick={() => navigate("/eriasentaku")}>
-            エリア選択へ戻る
+          <button onClick={() => navigate("/boss")}>
+            ボス選択へ戻る
           </button>
         </div>
       )}
@@ -302,8 +302,8 @@ function saveWrongQuestion(question) {
           もう一度
          </button>
 
-         <button onClick={() => navigate("/eriasentaku")}>
-           🗺 エリア選択画面へ戻る
+         <button onClick={() => navigate("/boss")}>
+           🗺  ボス選択画面へ戻る
          </button>
 
          <button onClick={() => navigate("/start")}>
