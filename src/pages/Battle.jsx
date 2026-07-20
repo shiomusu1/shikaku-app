@@ -312,7 +312,6 @@ function saveWrongQuestion(question) {
 
         <button onClick={() => window.location.reload()}>
           もう一度
-        
         </button>
 
          <button onClick={() => navigate("/eriasentaku")}>

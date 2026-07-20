@@ -23,7 +23,7 @@ const goToBattle3 = () => {
 };
 
 const goToBattle4 = () => {
-  navigate('/battleorWweak', {
+  navigate('/battleorweak', {
     state: { area: 4 },
   });
 };

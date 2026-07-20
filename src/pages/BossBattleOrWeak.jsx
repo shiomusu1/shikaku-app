@@ -6,9 +6,15 @@ function BoosBattleOrweak() {
     
     const boss = location.state?.boss;
 
+    const bossName = {
+     1: "①ストラテジ系",
+     2: "②マネジメント系",
+     3: "③テクノロジ系",
+    }[boss];
+
   return (
     <div>
-      <h1>ボス{boss} モード選択</h1>
+      <h1>ボス{bossName} モード選択</h1>
 
       <button onClick={() => navigate(`/boss/${boss}`)}>
         戦闘
@@ -18,7 +24,7 @@ function BoosBattleOrweak() {
         苦手問題
       </button>
 
-      <button onClick={() => navigate("/boss ")}>
+      <button onClick={() => navigate("/boss")}>
         ボス選択画面へ戻る
       </button>
 

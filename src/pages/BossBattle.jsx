@@ -298,8 +298,8 @@ function saveWrongQuestion(question) {
            苦手問題に挑戦
          </button>
 
-         <button onClick={() => navigate("/bossbattleorweak")}>
-            もう一度
+         <button onClick={() => window.location.reload()}>
+          もう一度
          </button>
 
          <button onClick={() => navigate("/eriasentaku")}>
