@@ -3,7 +3,7 @@ import Start from './pages/Start';
 import Eriasentaku from './pages/Eriasentaku';
 import Battle from './pages/Battle';
 import BattleOrWeak from './pages/BattleOrWeak';
-import Weak1 from './pages/Weak1';
+import Weak from './pages/Weak';
 
 import Boss from './pages/Boss';
 import BossBattleOrWeak from './pages/BossBattleOrWeak';
@@ -22,8 +22,8 @@ function App() {
 
         <Route path="/eriasentaku" element={<Eriasentaku />} />
         <Route path="/battleorweak" element={<BattleOrWeak />} />      
-        <Route path="/battle/:stageId" element={<Battle />} />
-        <Route path="/weak1" element={<Weak1 />} />
+        <Route path="/battle/:battleId" element={<Battle />} />
+        <Route path="/weak/:battleId" element={<Weak />} />
 
         <Route path="/boss" element={<Boss />} />
         <Route path="/bossbattleorweak" element={<BossBattleOrWeak />} />

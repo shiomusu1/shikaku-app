@@ -1,29 +1,25 @@
-// Battle1.jsx（完成版の骨組み）
-// ※ questions の構造は現在のままで利用できます。
 import { useState } from "react";
 import "./Battle.css";
 
 import battle1 from "../data/battle1";
-
 
 import { useNavigate, useParams } from "react-router-dom";
 
 function Battle() {
   
   const navigate = useNavigate();
-  
 
-  // URLからステージ番号を取得
-  const { stageId } = useParams();
+  // URLからバトル番号を取得する
+  const { battleId } = useParams();
 
-  // 各ステージの問題データ
+  // それぞれぼバトルの問題データ
   const questionData = {
     1: battle1,
 
   };
 
-  // 現在のステージの問題を取得
-  const questions = questionData[stageId];
+  // いまのバトルの問題を取得する
+  const questions = questionData[battleId];
 
   const [quizList] = useState(() =>
   questions
@@ -31,18 +27,23 @@ function Battle() {
     : []
   );
 
-  // 各ステージの問題データ
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
+
   const [wrongQuestions, setWrongQuestions] = useState([]);
+  
   const [result, setResult] = useState("");
+  
   const [answered, setAnswered] = useState(false);
 
   const [enemyHp, setEnemyHp] = useState(100);
+  
   const [isDefeated, setIsDefeated] = useState(false);
-  const [stageClear, setStageClear] = useState(false);
+  
+  const [battleClear, setBattleClear] = useState(false);
+  
   const [battleFailed, setBattleFailed] = useState(false);
 
+  //データ存在しないとき
   if (!questions) {
     return <h1>問題データが見つかりません</h1>;
   }
@@ -52,22 +53,93 @@ function Battle() {
   // 1問正解したときのダメージ
   const damage = 100 / quizList.length;
 
+
+   // ==============================
+  // 間違えた問題を保存する関数
+  // ==============================
+
+function saveWrongQuestion(question) {
+
+  // バトルごとの保存場所
+  const storageKey =
+    `wrongQuestions_battle_${battleId}`;
+
+
+  // localStorageに保存されている苦手問題を取得
+  const savedQuestions =
+    JSON.parse(localStorage.getItem(storageKey)) || [];
+
+
+  // localStorageに同じ問題があるか確認
+  const alreadySaved = savedQuestions.some(
+    savedQuestion =>
+      savedQuestion.question === question.question
+  );
+
+
+  // 保存されていなければlocalStorageに追加
+  if (!alreadySaved) {
+
+    localStorage.setItem(
+      storageKey,
+      JSON.stringify([
+        ...savedQuestions,
+        question
+      ])
+    );
+
+  }
+
+
+  // 今回のバトルで間違えた問題として追加
+  setWrongQuestions(prev => {
+
+    const alreadyWrong = prev.some(
+      wrongQuestion =>
+        wrongQuestion.question === question.question
+    );
+
+    if (alreadyWrong) {
+      return prev;
+    }
+
+    return [
+      ...prev,
+      question
+    ];
+
+  });
+
+}
+
+
+  // ==============================
+  // 問題に答えたとき
+  // ==============================
+
   function answer(index) {
+    //回答済みなにもしない
     if (answered) return;
 
     setAnswered(true);
 
+    //正解
     if (index === quiz.answer) {
       setResult("正解！");
       setEnemyHp(prev => Math.max(prev - damage, 0));
-    } else {
+    } 
+
+    //不正解
+    else {
       setResult("不正解！");
-      setWrongQuestions(prev => [
-        ...prev, 
-        quiz
-      ]);
+      // 間違えた問題を保存
+      saveWrongQuestion(quiz);
     }
   }
+
+  // ==============================
+  // 次の問題へ
+  // ==============================
 
   function nextQuestion() {
     if (currentQuestion < quizList.length - 1) {
@@ -77,13 +149,19 @@ function Battle() {
       return;
     }
 
+    // ==============================
     // 全問終了
-    if (wrongQuestions.length === 0) {
+    // ==============================
+
+    // localStorageから最新の間違えた問題を取得
+   if (wrongQuestions.length === 0) {
       setIsDefeated(true);
       setTimeout(() => {
-        setStageClear(true);
+        setBattleClear(true);
       }, 800);
-    } else {
+    } 
+      //間違えた問題ある
+    else {
       setTimeout(() => {
         setBattleFailed(true);
       }, 500);
@@ -92,7 +170,7 @@ function Battle() {
 
   return (
     <div className="game">
-      <h1 className="title">ステージ1</h1>
+      <h1 className="title">エリア1</h1>
 
       <img
         src="/image/zakokyara.jpg"
@@ -140,7 +218,7 @@ function Battle() {
 
       <h2>{result}</h2>
 
-      {!stageClear && !battleFailed && (
+      {!battleClear && !battleFailed && (
         <>
         <button onClick={nextQuestion}>
           {currentQuestion === quizList.length - 1 
@@ -154,10 +232,10 @@ function Battle() {
        </>
       )}
 
-      {stageClear && (
+      {battleClear && (
         <div className="clear-screen">
           <h1>
-            STAGE CLEAR!!!!!!!!!
+             CLEAR!!!!!!!!!
           </h1>
 
           <h2>
@@ -180,7 +258,7 @@ function Battle() {
 
       {battleFailed && (
         <div className="clear-screen">
-          <h1>
+          <h1 className="game-over-title">
             GAME OVER
           </h1>
 
@@ -189,7 +267,7 @@ function Battle() {
           </h2>
 
           <p>
-            ❌ 間違えた問題：{wrongQuestions.length}問
+            間違えた問題：{wrongQuestions.length}問
           </p>
 
          <p>
@@ -198,26 +276,20 @@ function Battle() {
            再挑戦しよう！
          </p>
 
-         <button>
-           📚 苦手問題に挑戦
+         <button   onClick={() =>navigate(`/weak/${battleId}`)}>
+           苦手問題に挑戦
          </button>
 
-         <button
-          onClick={() =>
-           navigate("/battleorweak", {
-             state: { area: Number(stageId)},
-            })
-           }
-          >
-           もう一度
-          </button>
+         <button onClick={() => navigate("/battleorweak")}>
+            もう一度
+         </button>
 
          <button onClick={() => navigate("/eriasentaku")}>
            🗺 エリア選択画面へ戻る
          </button>
 
          <button onClick={() => navigate("/start")}>
-              スタート画面へ戻る
+            スタート画面へ戻る
          </button>
          
         </div>
