@@ -2,6 +2,17 @@ import { useState } from "react";
 import "./Battle.css";
 
 import battle1 from "../data/battle1";
+import battle2 from "../data/battle2";
+import battle3 from "../data/battle3";
+import battle4 from "../data/battle4";
+import battle5 from "../data/battle5";
+import battle6 from "../data/battle6";
+import battle7 from "../data/battle7";
+import battle8 from "../data/battle8";
+import battle9 from "../data/battle9";
+import battle10 from "../data/battle10";
+
+import battleSettings from "../data/battleSettings";
 
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -13,13 +24,22 @@ function Battle() {
   const { battleId } = useParams();
 
   // それぞれぼバトルの問題データ
-  const questionData = {
-    1: battle1,
+const questionData = {
+  1: battle1,
+  2: battle2,
+  3: battle3,
+  4: battle4,
+  5: battle5,
+  6: battle6,
+  7: battle7,
+  8: battle8,
+  9: battle9,
+  10: battle10,
+};
 
-  };
+const battle = battleSettings[Number(battleId)];
 
-  // いまのバトルの問題を取得する
-  const questions = questionData[battleId];
+const questions = questionData[Number(battleId)];
 
   const [quizList] = useState(() =>
   questions
@@ -142,6 +162,10 @@ function saveWrongQuestion(question) {
   // ==============================
 
   function nextQuestion() {
+
+      // まだ回答していない場合は何もしない
+    if (!answered) return;
+
     if (currentQuestion < quizList.length - 1) {
       setCurrentQuestion(prev => prev + 1);
       setAnswered(false);
@@ -169,14 +193,20 @@ function saveWrongQuestion(question) {
   }
 
   return (
-    <div className="game">
-      <h1 className="title">エリア1</h1>
+    <div
+      className="game"
+      style={{
+        backgroundImage: `url(${battle.backgroundImage})`,
+      }}
+    >
 
-      <img
-        src="/image/zakokyara.jpg"
-        alt="敵"
-        className={`enemy-img ${isDefeated ? "defeated" : ""}`}
-      />
+    <h1 className="title">{battle.title}</h1>
+
+    <img
+      src={battle.enemyImage}
+      alt="敵"
+      className={`enemy-img ${isDefeated ? "defeated" : ""}`}
+    />
 
       <div className="enemy-name">{quiz.title}</div>
 

@@ -1,0 +1,73 @@
+const battleSettings = {
+  1: {
+    title: "エリア1",
+    enemyImage: "/image/zakokyara.jpg",
+    backgroundImage: "/image/background1.jpg",
+    weakBackgroundImage: "/image/background1.jpg",
+  },
+
+  2: {
+    title: "エリア2",
+    enemyImage: "/image/sun.png",
+    backgroundImage: "/image/background2.jpg",
+    weakBackgroundImage: "/image/background2.jpg",
+  },
+
+  3: {
+    title: "エリア3",
+    enemyImage: "/image/zakokyara.jpg",
+    backgroundImage: "/image/background1.jpg",
+    weakBackgroundImage: "/image/background1.jpg",
+  },
+
+  4: {
+    title: "エリア4",
+    enemyImage: "/image/sun.png",
+    backgroundImage: "/image/background2.jpg",
+    weakBackgroundImage: "/image/background2.jpg",
+  },
+
+  5: {
+    title: "エリア5",
+    enemyImage: "/image/zakokyara.jpg",
+    backgroundImage: "/image/background1.jpg",
+    weakBackgroundImage: "/image/background1.jpg",
+  },
+
+  6: {
+    title: "エリア6",
+    enemyImage: "/image/sun.png",
+    backgroundImage: "/image/background2.jpg",
+    weakBackgroundImage: "/image/background2.jpg",
+  },
+
+  7: {
+    title: "エリア7",
+    enemyImage: "/image/zakokyara.jpg",
+    backgroundImage: "/image/background1.jpg",
+    weakBackgroundImage: "/image/background1.jpg",
+  },
+
+  8: {
+    title: "エリア8",
+    enemyImage: "/image/sun.png",
+    backgroundImage: "/image/background2.jpg",
+    weakBackgroundImage: "/image/background2.jpg",
+  },
+
+  9: {
+    title: "エリア9",
+    enemyImage: "/image/zakokyara.jpg",
+    backgroundImage: "/image/background1.jpg",
+    weakBackgroundImage: "/image/background1.jpg",
+  },
+
+  10: {
+    title: "エリア10",
+    enemyImage: "/image/sun.png",
+    backgroundImage: "/image/background2.jpg",
+    weakBackgroundImage: "/image/background2.jpg",
+  },
+};
+
+export default battleSettings;

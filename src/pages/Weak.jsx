@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import battleSettings from "../data/battleSettings";
 
 import "./Battle.css";
 
@@ -9,6 +10,8 @@ function Weak() {
 
   // URLからステージ番号を取得
   const { battleId } = useParams();
+
+  const battle = battleSettings[Number(battleId)];
 
   // ステージごとのlocalStorageの保存場所
   const storageKey =
@@ -193,9 +196,13 @@ function Weak() {
 
 
   return (
-
-    <div className="game">
-
+    
+    <div
+      className="game"
+      style={{
+        backgroundImage: `url(${battle.weakBackgroundImage})`,
+      }}
+    >
 
       <h1 className="title">
         苦手問題
@@ -288,6 +295,8 @@ function Weak() {
 
 
     </div>
+
+    
 
   );
 

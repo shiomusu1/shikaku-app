@@ -14,7 +14,6 @@ body{
    align-items:center;
    box-sizing:border-box;
 
-   background-image: url('/image/background1.jpg');
    background-size: cover;
    background-position: center;
    background-repeat: no-repeat;
