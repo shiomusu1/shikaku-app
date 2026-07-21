@@ -21,9 +21,11 @@ function Weak() {
   const savedQuestions =
     JSON.parse(localStorage.getItem(storageKey)) || [];
 
+    //苦手問題をstateに保存
   const [quizList, setQuizList] =
     useState(savedQuestions);
 
+    //現在何問目か
   const [currentQuestion, setCurrentQuestion] =
     useState(0);
 

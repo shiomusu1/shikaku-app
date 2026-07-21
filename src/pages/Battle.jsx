@@ -18,10 +18,11 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function Battle() {
   
-  const navigate = useNavigate();
+  //画面遷移機能を準備
+const navigate = useNavigate();
 
   // URLからバトル番号を取得する
-  const { battleId } = useParams();
+const { battleId } = useParams();
 
   // それぞれぼバトルの問題データ
 const questionData = {
@@ -37,10 +38,13 @@ const questionData = {
   10: battle10,
 };
 
+//バトル設定を取得
 const battle = battleSettings[Number(battleId)];
 
+//問題データを取得
 const questions = questionData[Number(battleId)];
 
+//問題をランダムな順番にする
   const [quizList] = useState(() =>
   questions
     ? [...questions].sort(() => Math.random() - 0.5)
