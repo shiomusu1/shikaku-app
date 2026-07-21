@@ -8,11 +8,11 @@ function Start() {
       <h1>スタート画面</h1>
 
       <button onClick={() => navigate("/eriasentaku")}>
-        10種類のエリア選択画面へ
+        10分野のエリア選択画面へ
       </button>
 
       <button onClick={() => navigate("/boss")}>
-        三種類のボス選択画面へ
+        三系統のボス選択画面へ
       </button>
 
       <button onClick={() => navigate("/lastboss")}>
