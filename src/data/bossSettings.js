@@ -16,6 +16,7 @@ const bossSettings = {
   3: {
     title: "テクノロジ系ボス",
     enemyImage: "/image/background1.jpg",
+    backgroundImage: "/image/background2.jpg",
     weakBackgroundImage: "/image/background1.jpg",  },
 };
 
