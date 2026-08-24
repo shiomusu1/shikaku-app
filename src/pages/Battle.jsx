@@ -54,6 +54,8 @@ const questions = questionData[Number(battleId)];
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const [wrongQuestions, setWrongQuestions] = useState([]);
+
+  const [hasWrongAnswer, setHasWrongAnswer] = useState(false);
   
   const [result, setResult] = useState("");
   
@@ -78,7 +80,7 @@ const questions = questionData[Number(battleId)];
   const damage = 100 / quizList.length;
 
 
-   // ==============================
+  // ==============================
   // 間違えた問題を保存する関数
   // ==============================
 
@@ -156,6 +158,7 @@ function saveWrongQuestion(question) {
     //不正解
     else {
       setResult("不正解！");
+      setHasWrongAnswer(true);
       // 間違えた問題を保存
       saveWrongQuestion(quiz);
     }
@@ -181,18 +184,18 @@ function saveWrongQuestion(question) {
     // 全問終了
     // ==============================
 
-    // localStorageから最新の間違えた問題を取得
-   if (wrongQuestions.length === 0) {
-      setIsDefeated(true);
-      setTimeout(() => {
-        setBattleClear(true);
-      }, 800);
-    } 
-      //間違えた問題ある
-    else {
+    // 全問正解だった場合に、敵を倒してクリア画面を表示する
+    if (hasWrongAnswer) {
+      // 1問でも間違えていた
       setTimeout(() => {
         setBattleFailed(true);
       }, 500);
+    } else {
+      //全問正解
+      setIsDefeated(true);
+      setTimeout(() => {
+        setBattleClear(true);
+      }, 800);  
     }
   }
 
