@@ -1,21 +1,21 @@
 const battleSettings = {
   1: {
     title: "エリア1",
-    enemyImage: "/image/zakokyara.jpg",
-    backgroundImage: "/image/background1.jpg",
-    weakBackgroundImage: "/image/background1.jpg",
+    enemyImage: "/image/battle1_enemy.jpeg",
+    backgroundImage: "/image/background1.jpeg",
+    weakBackgroundImage: "/image/background1.jpeg",
   },
 
   2: {
     title: "エリア2",
     enemyImage: "/image/sun.png",
-    backgroundImage: "/image/background2.jpg",
-    weakBackgroundImage: "/image/background2.jpg",
+    backgroundImage: "/image/background2.jpeg",
+    weakBackgroundImage: "/image/background2.jpeg",
   },
 
   3: {
     title: "エリア3",
-    enemyImage: "/image/zakokyara.jpg",
+    enemyImage: "/image/battle3_enemy.jpeg",
     backgroundImage: "/image/background1.jpg",
     weakBackgroundImage: "/image/background1.jpg",
   },
