@@ -1,20 +1,20 @@
 const bossSettings = {
   1: {
-    title: "ストラテジ系ボス",
+    title: "ボス1",
     enemyImage: "/image/background1.jpg",
     backgroundImage: "/image/background1.jpg",
     weakBackgroundImage: "/image/background1.jpg",
   },
 
   2: {
-    title: "マネジメント系ボス",
+    title: "ボス2",
     enemyImage: "/image/background2.jpg",
     backgroundImage: "/image/background2.jpg",
     weakBackgroundImage: "/image/background2.jpg",
   },
 
   3: {
-    title: "テクノロジ系ボス",
+    title: "ボス3",
     enemyImage: "/image/background1.jpg",
     backgroundImage: "/image/background2.jpg",
     weakBackgroundImage: "/image/background1.jpg",  },
