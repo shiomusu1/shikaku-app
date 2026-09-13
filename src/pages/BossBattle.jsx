@@ -49,6 +49,8 @@ function Battle() {
   const [enemyHp, setEnemyHp] = useState(100);
   
   const [isDefeated, setIsDefeated] = useState(false);
+
+  const [isHit, setIsHit] = useState(false);
   
   const [battleClear, setBattleClear] = useState(false);
   
@@ -138,7 +140,15 @@ function saveWrongQuestion(question) {
     if (index === quiz.answer) {
       setResult("正解！");
       setEnemyHp(prev => Math.max(prev - damage, 0));
-    } 
+
+      // 敵が攻撃を受けた状態にする
+      setIsHit(true);
+
+      // 0.4秒後に元に戻す
+      setTimeout(() => {
+        setIsHit(false);
+      }, 400);
+    }
 
     //不正解
     else {
@@ -197,7 +207,10 @@ function saveWrongQuestion(question) {
     <img
       src={boss.enemyImage}
       alt="ボス"
-      className={`enemy-img ${isDefeated ? "defeated" : ""}`}
+      className={`enemy-img 
+       ${isDefeated ? "defeated" : ""}
+       ${isHit ? "hit" : ""}
+      `}
     />
 
       <div className="enemy-name">{quiz.title}</div>

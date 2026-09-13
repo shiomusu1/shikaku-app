@@ -141,10 +141,6 @@ function Weak() {
 
       setResult("正解！");
 
-
-      // 正解した問題を削除
-      removeQuestion(quiz);
-
     }
 
 
@@ -164,19 +160,45 @@ function Weak() {
 
   function nextQuestion() {
 
-    setResult("");
+  // 正解した問題を削除
+  if (result === "正解！") {
 
-    setAnswered(false);
+    const newQuizList =
+      quizList.filter(
+        (_, index) =>
+          index !== currentQuestion
+      );
 
+    setQuizList(newQuizList);
 
-    if (quizList.length === 0) {
+    // localStorageも更新
+    localStorage.setItem(
+      storageKey,
+      JSON.stringify(newQuizList)
+    );
 
+    // 問題がなくなった場合
+    if (newQuizList.length === 0) {
+
+      setResult("");
+      setAnswered(false);
       return;
 
     }
 
+    // 次の問題へ
+    if (currentQuestion >= newQuizList.length) {
 
-    // 最後の問題なら最初に戻る
+      setCurrentQuestion(0);
+
+    }
+
+  }
+
+  else {
+
+    // 不正解の場合は問題を削除しない
+
     if (
       currentQuestion >= quizList.length - 1
     ) {
@@ -184,7 +206,6 @@ function Weak() {
       setCurrentQuestion(0);
 
     }
-
 
     else {
 
@@ -195,6 +216,11 @@ function Weak() {
     }
 
   }
+
+  setResult("");
+  setAnswered(false);
+
+}
 
 
   return (
