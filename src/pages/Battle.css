@@ -69,10 +69,13 @@ body{
    color: #fff200;
 }
 
+/* HPバーが滑らかに減る */
 .hp-fill {
   width: 100%;
   height: 100%;
   background-color: #ff3333;
+
+  transition: width 0.5s ease-out;
 }
 
 .question{
@@ -197,6 +200,7 @@ body{
    margin-bottom:10px;
 }
 
+/* 敵が赤く光りながら揺れる */
 .enemy-img.hit {
   animation: enemyHit 0.4s;
 }
@@ -204,25 +208,129 @@ body{
 @keyframes enemyHit {
   0% {
     transform: translateX(0);
+    filter: brightness(1);
   }
 
   20% {
     transform: translateX(-15px);
+    filter: brightness(2) sepia(1) saturate(5) hue-rotate(-50deg);
   }
 
   40% {
     transform: translateX(15px);
+    filter: brightness(2) sepia(1) saturate(5) hue-rotate(-50deg);
   }
 
   60% {
     transform: translateX(-10px);
+    filter: brightness(1.8) sepia(1) saturate(5) hue-rotate(-50deg);
   }
 
   80% {
     transform: translateX(10px);
+    filter: brightness(1.5);
   }
 
   100% {
     transform: translateX(0);
+    filter: brightness(1);
   }
+}
+
+
+
+/* ダメージ数字の表示 */
+.damage-number {
+  position: absolute;
+  top: 250px;
+
+  color: #ff3333;
+  font-size: 50px;
+  font-weight: bold;
+
+  text-shadow:
+    3px 3px 0 #000,
+    -2px -2px 0 #fff,
+    2px -2px 0 #fff,
+    -2px 2px 0 #fff,
+    2px 2px 0 #fff;
+
+  pointer-events: none;
+
+  animation: damageUp 0.8s ease-out forwards;
+
+  z-index: 10;
+}
+
+@keyframes damageUp {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.4);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-35px) scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-80px) scale(1);
+  }
+}
+
+/* 連続正解数 */
+.combo-text {
+  color: #ffe58a;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* アイテム獲得・使用メッセージ */
+.item-message {
+  color: #fff3a6;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* アイテムボタン */
+.item-btn {
+  display: block;
+  margin: 15px auto;
+  padding: 12px 24px;
+
+  background-color: #ffe58a;
+  color: #333;
+
+  border: 3px solid #d6a83e;
+  border-radius: 10px;
+
+  font-size: 18px;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.item-btn:hover {
+  background-color: #fff1b8;
+}
+
+.item-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* アイテム所持数 */
+.item-count {
+  color: #fff3a6;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
 }

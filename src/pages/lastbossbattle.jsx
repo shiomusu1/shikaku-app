@@ -31,10 +31,31 @@ function Battle() {
   const [isDefeated, setIsDefeated] = useState(false);
 
   const [isHit, setIsHit] = useState(false);
+
+  const [damagePopup, setDamagePopup] = useState(null);
   
   const [battleClear, setBattleClear] = useState(false);
   
   const [battleFailed, setBattleFailed] = useState(false);
+
+  // ==============================
+  // アイテム機能
+  // ==============================
+
+  // 連続正解数
+  const [combo, setCombo] = useState(0);
+
+  // 所持しているアイテムの数
+  const [itemCount, setItemCount] = useState(0);
+
+  // 獲得したアイテムの数
+  const [itemTotal, setItemTotal] = useState(0);
+
+  // アイテムで消す選択肢の番号
+  const [hiddenChoices, setHiddenChoices] = useState([]);
+
+  // アイテム獲得・使用メッセージ
+  const [itemMessage, setItemMessage] = useState("");
 
   const quiz = quizList[currentQuestion];
 
@@ -112,25 +133,90 @@ function saveWrongQuestion(question) {
     //正解
     if (index === quiz.answer) {
       setResult("正解！");
-      setEnemyHp(prev => Math.max(prev - damage, 0));
 
       // 敵が攻撃を受けた状態にする
       setIsHit(true);
 
-      // 0.4秒後に元に戻す
+      // ダメージ数字を表示する
+      setDamagePopup({
+        id: Date.now(),
+        value: Math.round(damage),
+      });
+
+      // 0.3秒後にHPを減らす
+      setTimeout(() => {
+        setEnemyHp(prev => Math.max(prev - damage, 0));
+      }, 300);
+
+      // 0.4秒後に敵の揺れを止める
       setTimeout(() => {
         setIsHit(false);
       }, 400);
+
+      // 0.8秒後にダメージ数字を消す
+      setTimeout(() => {
+        setDamagePopup(null);
+      }, 800);
+
+      // 連続正解数を増やす
+      const newCombo = combo + 1;
+
+      setCombo(newCombo);
+      
+      // 5,10,15問連続正解でアイテム獲得
+      if (
+        [5,10,15].includes(newCombo)&&
+        itemTotal < 3
+      ) {
+        setItemCount(prev => prev + 1);
+        setItemTotal(prev => prev + 1);
+
+        setItemMessage(
+          "アイテムを獲得した！"
+        );
+      }
+
     }
 
     //不正解
     else {
       setResult("不正解！");
+
+      setCombo(0);
+
+      setItemMessage("");
+
+      // 間違えた問題を記録
       setHasWrongAnswer(true);
+
       // 間違えた問題を保存
       saveWrongQuestion(quiz);
     }
   }
+
+   //アイテムを使用する関数
+   function useItem() {
+     // アイテムがない・回答済みなら何もしない
+     if (itemCount <= 0 || answered) return;
+
+     // 正解以外の選択肢の番号を取得
+     const incorrectChoices = quiz.choices
+     .map((_, index) => index)
+     .filter(index => index !== quiz.answer);
+
+     // 不正解の選択肢をランダムに並べる
+     const shuffledChoices = [...incorrectChoices].sort(
+       () => Math.random() - 0.5
+     );
+
+     // 不正解の選択肢を2つ消す
+     setHiddenChoices(shuffledChoices.slice(0, 2));
+
+     // アイテムを使用済みにする
+     setItemCount(prev => prev - 1);
+
+     setItemMessage("アイテムを使った！選択肢が2つ消えた！");
+   }
 
   // ==============================
   // 次の問題へ
@@ -144,8 +230,16 @@ function saveWrongQuestion(question) {
       // まだ問題が残っちる
     if (currentQuestion < quizList.length - 1) {
       setCurrentQuestion(prev => prev + 1);
+
       setAnswered(false);
       setResult("");
+
+      // 次の問題では選択肢をすべて表示する
+      setHiddenChoices([]);
+
+      // メッセージを消す
+      setItemMessage("");
+
       return;
     }
 
@@ -187,6 +281,16 @@ function saveWrongQuestion(question) {
       `}
     />
 
+    {/* ダメージ数字 */}
+    {damagePopup && (
+      <div
+        key={damagePopup.id}
+        className="damage-number"
+      >
+        -{damagePopup.value}
+      </div>
+    )}
+
       <div className="enemy-name">{quiz.title}</div>
 
       <div className="hp-bar">
@@ -201,6 +305,35 @@ function saveWrongQuestion(question) {
       </div>
 
       <div className="question">
+
+      {/* 連続正解数 */}
+      <p className="combo-text">
+        🔥 {combo} COMBO!!
+      </p>
+
+      {/* アイテム獲得・使用メッセージ */}
+      {itemMessage && (
+        <p className="item-message">
+          {itemMessage}
+        </p>
+      )}
+
+      {/* アイテム所持数 */}
+      <p className="item-count">
+        🎁 アイテム：{itemCount}個
+      </p>
+
+      {/* アイテム使用ボタン */}
+      {itemCount > 0 && (
+        <button
+          className="item-btn"
+          onClick={useItem}
+          disabled={answered}
+        >
+          アイテムを使う
+        </button>
+      )}
+
         <p>{quiz.question}</p>
 
         {quiz.image && (
@@ -213,17 +346,25 @@ function saveWrongQuestion(question) {
       </div>
 
       <div className="choices">
-        {quiz.choices.map((choice, index) => (
-          <button
-            key={index}
-            className="choice-btn"
-            disabled={answered}
-            onClick={() => answer(index)}
-          >
-            {choice}
-          </button>
-        ))}
-      </div>
+       {quiz.choices.map((choice, index) => {
+
+          // アイテムで消された選択肢は表示しない
+          if (hiddenChoices.includes(index)) {
+            return null;
+          }
+
+          return (
+            <button
+              key={index}
+              className="choice-btn"
+              disabled={answered}
+              onClick={() => answer(index)}
+            >
+        {choice}
+      </button>
+    );
+  })}
+</div>
 
       <h2>{result}</h2>
 

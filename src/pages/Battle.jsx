@@ -66,11 +66,29 @@ const questions = questionData[Number(battleId)];
   const [isDefeated, setIsDefeated] = useState(false);
 
   const [isHit, setIsHit] = useState(false);
+
+  const [damagePopup, setDamagePopup] = useState(null);
   
   const [battleClear, setBattleClear] = useState(false);
   
   const [battleFailed, setBattleFailed] = useState(false);
 
+  // 連続正解数
+  const [combo, setCombo] = useState(0);
+
+  // アイテムを持っているか
+  const [hasItem, setHasItem] = useState(false);
+
+  // アイテムを使用済みか
+  const [itemUsed, setItemUsed] = useState(false);
+
+  // アイテムで消す選択肢の番号
+  const [hiddenChoices, setHiddenChoices] = useState([]);
+
+  // アイテム獲得メッセージ
+  const [itemMessage, setItemMessage] = useState("");
+
+  
   //データ存在しないとき
   if (!questions) {
     return <h1>問題データが見つかりません</h1>;
@@ -151,28 +169,93 @@ function saveWrongQuestion(question) {
 
     setAnswered(true);
 
+
+  if (index === quiz.answer) {
     //正解
-    if (index === quiz.answer) {
-      setResult("正解！");
+    setResult("正解！");
+
+    // 敵が攻撃を受けた状態にする
+    setIsHit(true);
+
+    // ダメージ数字を表示する
+    setDamagePopup({
+      id: Date.now(),
+      value: Math.round(damage),
+    });
+
+    // 0.3秒後にHPを減らす
+    setTimeout(() => {
       setEnemyHp(prev => Math.max(prev - damage, 0));
+    }, 300);
 
-      // 敵が攻撃を受けた状態にする
-      setIsHit(true);
-  
-      // 0.4秒後に元に戻す
-      setTimeout(() => {
-        setIsHit(false);
-      }, 400);
-    }
+    // 0.4秒後に敵の揺れを止める
+    setTimeout(() => {
+      setIsHit(false);
+    }, 400);
 
-    //不正解
-    else {
-      setResult("不正解！");
-      setHasWrongAnswer(true);
-      // 間違えた問題を保存
-      saveWrongQuestion(quiz);
-    }
+    // 0.8秒後にダメージ数字を消す
+    setTimeout(() => {
+      setDamagePopup(null);
+    }, 800);
+
+    // 連続正解数を増やす
+    const newCombo = combo + 1;
+
+    setCombo(newCombo);
+
+      // 5連続正解でアイテム獲得
+      if (
+        newCombo === 5 && 
+        !hasItem &&
+        !itemUsed  
+      ){
+        setHasItem(true);
+        setItemMessage("アイテムを獲得した！");
+      }
+
+  } 
+  else {
+    // 不正解のとき
+    setResult("不正解！");
+
+    // 連続正解数をリセット
+    setCombo(0);
+
+    // メッセージを残す
+    setItemMessage("");
+
+    // 間違えた問題を記録
+    setHasWrongAnswer(true);
+
+    // 間違えた問題を保存
+    saveWrongQuestion(quiz);
   }
+}
+
+//アイテムを使用する関数
+ function useItem() {
+   if (!hasItem || itemUsed || answered) return;
+
+   // 正解以外の選択肢の番号を取得
+   const incorrectChoices = quiz.choices
+     .map((_, index) => index)
+     .filter((index) => index !== quiz.answer);
+
+   // 不正解の選択肢をランダムに並べる
+   const shuffledChoices = [...incorrectChoices].sort(
+     () => Math.random() - 0.5
+   );
+
+   // 不正解の選択肢を2つ消す
+   setHiddenChoices(shuffledChoices.slice(0, 2));
+
+   // アイテムを使用済みにする
+   setHasItem(false);
+   setItemUsed(true);
+
+   setItemMessage("アイテムを使った！選択肢が2つ消えた！");
+ }
+
 
   // ==============================
   // 次の問題へ
@@ -184,9 +267,17 @@ function saveWrongQuestion(question) {
     if (!answered) return;
 
     if (currentQuestion < quizList.length - 1) {
-      setCurrentQuestion(prev => prev + 1);
+      setCurrentQuestion((prev) => prev + 1);
+
       setAnswered(false);
       setResult("");
+
+      // 次の問題では選択肢をすべて表示する
+      setHiddenChoices([]);
+
+      // アイテムのメッセージを消す
+      setItemMessage("");
+
       return;
     }
 
@@ -228,6 +319,16 @@ function saveWrongQuestion(question) {
       `}
     />
 
+    {/* ダメージ与えたときの数字表示 */}
+    {damagePopup && (
+      <div
+        key={damagePopup.id}
+        className="damage-number"
+      >
+        -{damagePopup.value}
+      </div>
+    )}
+
       <div className="enemy-name">{quiz.title}</div>
 
       <div className="hp-bar">
@@ -241,7 +342,14 @@ function saveWrongQuestion(question) {
         HP {Math.round(enemyHp)} / 100
       </div>
 
+      {/* 連続正解 */}
+      <p className="combo-text">
+        {combo} COMBO!! 
+      </p>
+
+      {/* 問題表示 */}
       <div className="question">
+
         <p>{quiz.question}</p>
 
         {quiz.image && (
@@ -251,23 +359,54 @@ function saveWrongQuestion(question) {
             className="question-image"
           />
         )}
+
       </div>
 
+      {/* アイテム獲得メッセージ */}
+      {itemMessage && (
+        <p className="item-message">
+          {itemMessage}
+        </p>
+      )}
+
+      {/* アイテムボタン */}
+      {hasItem && !itemUsed && (
+        <button
+          className="item-btn"
+          onClick={useItem}
+          disabled={answered}
+        >
+          アイテムを使う
+        </button>
+      )}
+      
+      {/* 選択肢 */}
       <div className="choices">
-        {quiz.choices.map((choice, index) => (
-          <button
-            key={index}
-            className="choice-btn"
-            disabled={answered}
-            onClick={() => answer(index)}
-          >
-            {choice}
-          </button>
-        ))}
+
+        {quiz.choices.map((choice, index) => {
+
+          // アイテムで消された選択肢は表示しない
+          if (hiddenChoices.includes(index)) {
+            return null;
+          }
+
+          return (
+            <button
+              key={index}
+              className="choice-btn"
+              disabled={answered}
+              onClick={() => answer(index)}
+            >
+              {choice}
+            </button>
+          );
+        })}
+
       </div>
 
       <h2>{result}</h2>
 
+      {/* 次の問題・戻るボタン */}
       {!battleClear && !battleFailed && (
         <>
         <button onClick={nextQuestion}>
@@ -282,8 +421,10 @@ function saveWrongQuestion(question) {
        </>
       )}
 
+      {/* クリア画面 */}
       {battleClear && (
         <div className="clear-screen">
+
           <h1>
              CLEAR!!!!!!!!!
           </h1>
@@ -296,8 +437,8 @@ function saveWrongQuestion(question) {
             全問正解おめでとう♪
             <br/>
 
-            これで君も
-            企業活動・経営マスター！！
+            これで
+            {battle.title}マスター！！
           </p>
 
           <button onClick={() => navigate("/eriasentaku")}>
@@ -306,6 +447,7 @@ function saveWrongQuestion(question) {
         </div>
       )}
 
+      {/* ゲームオーバー画面 */}
       {battleFailed && (
         <div className="clear-screen">
           <h1 className="game-over-title">
