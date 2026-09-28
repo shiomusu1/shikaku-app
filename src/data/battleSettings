@@ -2,7 +2,7 @@ const battleSettings = {
   1: {
     title: "エリア1",
     subtitle: "企業活動・経営",
-    enemyImage: "/image/battle1_enemy.jpeg",
+    enemyImage: "/image/battle1_enemy.png",
     backgroundImage: "/image/background1.jpeg",
     weakBackgroundImage: "/image/background1.jpeg",
   },
@@ -10,7 +10,7 @@ const battleSettings = {
   2: {
     title: "エリア2",
     subtitle: "法務・知的財産",
-    enemyImage: "/image/sun.png",
+    enemyImage: "/image/battle2_enemy.png",
     backgroundImage: "/image/background2.jpeg",
     weakBackgroundImage: "/image/background2.jpeg",
   },
@@ -18,47 +18,47 @@ const battleSettings = {
   3: {
     title: "エリア3",
     subtitle: "システム戦略",
-    enemyImage: "/image/battle3_enemy.jpeg",
-    backgroundImage: "/image/background1.jpg",
-    weakBackgroundImage: "/image/background1.jpg",
+    enemyImage: "/image/battle3_enemy.png",
+    backgroundImage: "/image/background3.png",
+    weakBackgroundImage: "/image/background3.png",
   },
 
   4: {
     title: "エリア4",
     subtitle: "プロジェクト管理",
-    enemyImage: "/image/sun.png",
-    backgroundImage: "/image/background2.jpg",
-    weakBackgroundImage: "/image/background2.jpg",
+    enemyImage: "/image/battle4_enemy.png",
+    backgroundImage: "/image/background4.png",
+    weakBackgroundImage: "/image/background4.png",
   },
 
   5: {
     title: "エリア5",
     subtitle: "サービスマネジメント",
-    enemyImage: "/image/zakokyara.jpg",
-    backgroundImage: "/image/background1.jpg",
-    weakBackgroundImage: "/image/background1.jpg",
+    enemyImage: "/image/battle5_enemy.png",
+    backgroundImage: "/image/background5.png",
+    weakBackgroundImage: "/image/background5.png",
   },
 
   6: {
     title: "エリア6",
     subtitle: "システム開発",
-    enemyImage: "/image/sun.png",
-    backgroundImage: "/image/background2.jpg",
-    weakBackgroundImage: "/image/background2.jpg",
+    enemyImage: "/image/battle6_enemy.png",
+    backgroundImage: "/image/background6.png",
+    weakBackgroundImage: "/image/background6.png",
   },
 
   7: {
     title: "エリア7",
     subtitle: "コンピュータ基礎",
-    enemyImage: "/image/zakokyara.jpg",
-    backgroundImage: "/image/background1.jpg",
-    weakBackgroundImage: "/image/background1.jpg",
+    enemyImage: "/image/battle7_enemy.png",
+    backgroundImage: "/image/background7.png",
+    weakBackgroundImage: "/image/background7.png",
   },
 
   8: {
     title: "エリア8",
     subtitle: "ネットワーク",
-    enemyImage: "/image/sun.png",
+    enemyImage: "/image/battle8_enemy.png",
     backgroundImage: "/image/background2.jpg",
     weakBackgroundImage: "/image/background2.jpg",
   },
@@ -66,7 +66,7 @@ const battleSettings = {
   9: {
     title: "エリア9",
     subtitle: "データベース",
-    enemyImage: "/image/zakokyara.jpg",
+    enemyImage: "/image/battle9_enemy.png",
     backgroundImage: "/image/background1.jpg",
     weakBackgroundImage: "/image/background1.jpg",
   },
@@ -74,7 +74,7 @@ const battleSettings = {
   10: {
     title: "エリア10",
     subtitle: "セキュリティ",
-    enemyImage: "/image/sun.png",
+    enemyImage: "/image/battle10_enemy.png",
     backgroundImage: "/image/background2.jpg",
     weakBackgroundImage: "/image/background2.jpg",
   },

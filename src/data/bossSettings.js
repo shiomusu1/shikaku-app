@@ -2,25 +2,26 @@ const bossSettings = {
   1: {
     title: "ボス1",
     subtitle: "ストラテジ系問題",
-    enemyImage: "/image/background1.jpg",
-    backgroundImage: "/image/background1.jpg",
-    weakBackgroundImage: "/image/background1.jpg",
+    enemyImage: "/image/background_strategy.png",
+    backgroundImage: "/image/background_strategy.png",
+    weakBackgroundImage: "/image/background1_strategy.png",
   },
 
   2: {
     title: "ボス2",
     subtitle: "マネジメント系問題",
     enemyImage: "/image/background2.jpg",
-    backgroundImage: "/image/background2.jpg",
-    weakBackgroundImage: "/image/background2.jpg",
+    backgroundImage: "/image/background_management.png",
+    weakBackgroundImage: "/image/background_management.png",
   },
 
   3: {
     title: "ボス3",
     subtitle: "テクノロジ系問題",
     enemyImage: "/image/background1.jpg",
-    backgroundImage: "/image/background2.jpg",
-    weakBackgroundImage: "/image/background1.jpg",  },
+    backgroundImage: "/image/background_technology.png",
+    weakBackgroundImage: "/image/background_technology.png", 
+  },
 };
 
 export default bossSettings;
