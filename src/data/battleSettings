@@ -3,7 +3,7 @@ const battleSettings = {
     title: "エリア1",
     subtitle: "企業活動・経営",
     enemyImage: "/image/battle1_enemy.png",
-    backgroundImage: "/image/background1.jpeg",
+    backgroundImage: "/image/background1.png",
     weakBackgroundImage: "/image/background1.jpeg",
   },
 
@@ -11,7 +11,7 @@ const battleSettings = {
     title: "エリア2",
     subtitle: "法務・知的財産",
     enemyImage: "/image/battle2_enemy.png",
-    backgroundImage: "/image/background2.jpeg",
+    backgroundImage: "/image/background2.png",
     weakBackgroundImage: "/image/background2.jpeg",
   },
 
@@ -59,24 +59,24 @@ const battleSettings = {
     title: "エリア8",
     subtitle: "ネットワーク",
     enemyImage: "/image/battle8_enemy.png",
-    backgroundImage: "/image/background2.jpg",
-    weakBackgroundImage: "/image/background2.jpg",
+    backgroundImage: "/image/background8.png",
+    weakBackgroundImage: "/image/background8.png",
   },
 
   9: {
     title: "エリア9",
     subtitle: "データベース",
     enemyImage: "/image/battle9_enemy.png",
-    backgroundImage: "/image/background1.jpg",
-    weakBackgroundImage: "/image/background1.jpg",
+    backgroundImage: "/image/background9.png",
+    weakBackgroundImage: "/image/background9.png",
   },
 
   10: {
     title: "エリア10",
     subtitle: "セキュリティ",
     enemyImage: "/image/battle10_enemy.png",
-    backgroundImage: "/image/background2.jpg",
-    weakBackgroundImage: "/image/background2.jpg",
+    backgroundImage: "/image/background10.png",
+    weakBackgroundImage: "/image/background10.png",
   },
 };
 
