@@ -38,18 +38,33 @@ body{
    border-radius: 500px;
 }
 
+/* 敵の撃破エフェクト */
 .enemy-img.defeated {
-  animation: shrink 0.8s forwards;
+  animation: defeated 0.8s ease-out forwards;
 }
 
-@keyframes shrink {
-  from {
+@keyframes defeated {
+  0% {
     transform: scale(1);
+    filter: brightness(1);
     opacity: 1;
   }
 
-  to {
+  25% {
+    transform: scale(1.25);
+    filter: brightness(4);
+    opacity: 1;
+  }
+
+  45% {
+    transform: scale(1.1);
+    filter: brightness(2);
+    opacity: 1;
+  }
+
+  100% {
     transform: scale(0);
+    filter: brightness(1);
     opacity: 0;
   }
 }
@@ -237,7 +252,43 @@ body{
   }
 }
 
+/* 敵の瀕死状態 */
+.enemy-img.danger {
+  animation: enemyDanger 0.8s infinite;
+}
 
+@keyframes enemyDanger {
+  0% {
+    filter: brightness(1);
+  }
+
+  50% {
+    filter: brightness(1.8) sepia(1) saturate(6) hue-rotate(-50deg);
+  }
+
+  100% {
+    filter: brightness(1);
+  }
+}
+
+/* HPが少ないときの危険演出 */
+.hp-bar.danger {
+  animation: hpDanger 0.6s infinite;
+}
+
+@keyframes hpDanger {
+  0% {
+    box-shadow: 0 0 0px rgba(255, 0, 0, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.9);
+  }
+
+  100% {
+    box-shadow: 0 0 0px rgba(255, 0, 0, 0);
+  }
+}
 
 /* ダメージ数字の表示 */
 .damage-number {
@@ -286,7 +337,7 @@ body{
 
 /* 連続正解数 */
 .combo-text {
-  color: #ffe58a;
+  color: #fe0000;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
@@ -333,4 +384,106 @@ body{
   font-size: 20px;
   font-weight: bold;
   text-align: center;
+}
+
+/* 撃破時の画面フラッシュ */
+.battle-flash {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: white;
+
+  pointer-events: none;
+
+  z-index: 9998;
+
+  animation: battleFlash 0.5s ease-out forwards;
+}
+
+@keyframes battleFlash {
+  0% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 撃破時の光の粒 */
+.particles {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.particles span {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px white;
+  animation: particleExplosion 0.8s ease-out forwards;
+}
+
+/* それぞれ違う方向へ飛ばす */
+.particles span:nth-child(1) {
+  --x: -120px;
+  --y: -80px;
+}
+
+.particles span:nth-child(2) {
+  --x: 0px;
+  --y: -130px;
+}
+
+.particles span:nth-child(3) {
+  --x: 120px;
+  --y: -80px;
+}
+
+.particles span:nth-child(4) {
+  --x: 140px;
+  --y: 20px;
+}
+
+.particles span:nth-child(5) {
+  --x: 80px;
+  --y: 110px;
+}
+
+.particles span:nth-child(6) {
+  --x: -80px;
+  --y: 110px;
+}
+
+.particles span:nth-child(7) {
+  --x: -140px;
+  --y: 20px;
+}
+
+.particles span:nth-child(8) {
+  --x: -100px;
+  --y: -100px;
+}
+
+@keyframes particleExplosion {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
 }

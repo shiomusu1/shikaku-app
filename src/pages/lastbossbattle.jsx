@@ -38,6 +38,9 @@ function Battle() {
   
   const [battleFailed, setBattleFailed] = useState(false);
 
+  // 撃破時の画面フラッシュ
+  const [showFlash, setShowFlash] = useState(false);
+
   // ==============================
   // アイテム機能
   // ==============================
@@ -254,11 +257,20 @@ function saveWrongQuestion(question) {
         setBattleFailed(true);
       }, 500);
     } else {
-      //全問正解
-      setIsDefeated(true);
+      // 全問正解
+     setIsDefeated(true);
+
+      // 画面を白くフラッシュ
+      setShowFlash(true);
+
+      setTimeout(() => {
+        setShowFlash(false);
+      }, 500);
+
+      // 0.8秒後にクリア画面を表示
       setTimeout(() => {
         setBattleClear(true);
-      }, 800);  
+      }, 800);
     }
   }
 
@@ -278,6 +290,7 @@ function saveWrongQuestion(question) {
       className={`enemy-img 
         ${isDefeated ? "defeated" : ""}
         ${isHit ? "hit" : ""}
+        ${enemyHp <= 30 && enemyHp > 0 ? "danger" : ""}
       `}
     />
 
@@ -293,7 +306,7 @@ function saveWrongQuestion(question) {
 
       <div className="enemy-name">{quiz.title}</div>
 
-      <div className="hp-bar">
+      <div className={`hp-bar ${enemyHp <= 30 && enemyHp > 0 ? "danger" : ""}`}>
 
       <div className="hp-fill" 
            style={{ width: `${enemyHp}%` }} 
@@ -362,9 +375,16 @@ function saveWrongQuestion(question) {
             >
         {choice}
       </button>
-    );
-  })}
-</div>
+     );
+   })}
+ </div>
+
+      {/* 不正解だった場合、正解を表示 */}
+      {result === "不正解！" && (
+        <p className="correct-answer">
+          正解：{quiz.choices[quiz.answer]}
+        </p>
+      )}
 
       <h2>{result}</h2>
 
@@ -404,6 +424,25 @@ function saveWrongQuestion(question) {
             エリア選択へ戻る
           </button>
         </div>
+      )}
+
+      {/* 撃破時の粒子エフェクト */}
+      {isDefeated && (
+        <div className="particles">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      )}
+
+      {/* 撃破時の画面フラッシュ */}
+      {showFlash && (
+        <div className="battle-flash"></div>
       )}
 
       {battleFailed && (
