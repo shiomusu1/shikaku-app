@@ -321,31 +321,11 @@ function saveWrongQuestion(question) {
 
       {/* 連続正解数 */}
       <p className="combo-text">
-        🔥 {combo} COMBO!!
+        {combo} COMBO!!
       </p>
 
-      {/* アイテム獲得・使用メッセージ */}
-      {itemMessage && (
-        <p className="item-message">
-          {itemMessage}
-        </p>
-      )}
-
-      {/* アイテム所持数 */}
-      <p className="item-count">
-        🎁 アイテム：{itemCount}個
-      </p>
-
-      {/* アイテム使用ボタン */}
-      {itemCount > 0 && (
-        <button
-          className="item-btn"
-          onClick={useItem}
-          disabled={answered}
-        >
-          アイテムを使う
-        </button>
-      )}
+      {/* 問題表示 */}
+      <div className="question"></div>
 
         <p>{quiz.question}</p>
 
@@ -357,6 +337,24 @@ function saveWrongQuestion(question) {
           />
         )}
       </div>
+      
+      {/* アイテム獲得・使用メッセージ */}
+      {itemMessage && (
+        <p className="item-message">
+          {itemMessage}
+        </p>
+      )}
+
+      {/* アイテム使用ボタン */}
+      {itemCount > 0 && (
+        <button
+          className="item-btn"
+          onClick={useItem}
+          disabled={answered}
+        >
+          アイテムを使う
+        </button>
+      )}
 
       <div className="choices">
        {quiz.choices.map((choice, index) => {
@@ -379,6 +377,10 @@ function saveWrongQuestion(question) {
    })}
  </div>
 
+      <p className={`result ${result === "正解！" ? "correct" : "incorrect"}`}>
+       {result}
+      </p>
+
       {/* 不正解だった場合、正解を表示 */}
       {result === "不正解！" && (
         <p className="correct-answer">
@@ -386,8 +388,7 @@ function saveWrongQuestion(question) {
         </p>
       )}
 
-      <h2>{result}</h2>
-
+      {/* 次の問題・戻るボタン */}
       {!battleClear && !battleFailed && (
         <>
         <button onClick={nextQuestion}>

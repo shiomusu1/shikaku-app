@@ -29,7 +29,7 @@ function Battle() {
   // 問題データを取得
   const questions = questionData[Number(bossId)];
 
-//問題をランダムな順番にする
+  //問題をランダムな順番にする
   const [quizList] = useState(() =>
   questions
     ? [...questions].sort(() => Math.random() - 0.5)
@@ -398,6 +398,10 @@ function saveWrongQuestion(question) {
         })}
       </div>
 
+      <p className={`result ${result === "正解！" ? "correct" : "incorrect"}`}>
+       {result}
+      </p>
+
       {/* 不正解だった場合、正解を表示 */}
       {result === "不正解！" && (
         <p className="correct-answer">
@@ -405,8 +409,7 @@ function saveWrongQuestion(question) {
         </p>
       )}
 
-      <h2>{result}</h2>
-
+      {/* 次の問題・戻るボタン */}
       {!battleClear && !battleFailed && (
         <>
         <button onClick={nextQuestion}>
