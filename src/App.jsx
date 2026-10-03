@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Start from './pages/Start';
-import Eriasentaku from './pages/Eriasentaku';
+import Eriasentaku from './pages/eriasentaku';
 import Battle from './pages/Battle';
 import BattleOrWeak from './pages/BattleOrWeak';
 import Weak from './pages/Weak';

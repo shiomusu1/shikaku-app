@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import './eriasentaku.css';
+import './Eriasentaku.css';
 
 function Eriasentaku() {
   const navigate = useNavigate();
