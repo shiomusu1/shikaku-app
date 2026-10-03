@@ -3,8 +3,6 @@ body{
    font-family:sans-serif;
 }
 
-
-
 .game{
    font-family: PixelMplus12;
    width:100%;
@@ -28,6 +26,17 @@ body{
    font-size: 40px;
    margin-top: 30px;
    margin-bottom: 20px;
+   -webkit-text-stroke: 0.1em #000;
+   paint-order: stroke;
+}
+
+.enemy-name{
+   color: #ffffff;
+   font-size:30px;
+   margin-top:8px;
+   margin-bottom:10px;
+   -webkit-text-stroke: 0.1em #000;
+   paint-order: stroke;
 }
 
 .enemy-img{
@@ -82,6 +91,8 @@ body{
 .hp-text {
    font-size: 23px;
    color: #fff200;
+   -webkit-text-stroke: 0.1em #000;
+   paint-order: stroke;
 }
 
 /* HPバーが滑らかに減る */
@@ -101,7 +112,8 @@ body{
    color: #ffffff;
    font-size:28px;
    text-align:center;
-   margin-bottom:30px;
+   margin-top:10px;
+   margin-bottom:15px;
    line-height: 1.2;
    white-space: pre-line;
 }
@@ -118,7 +130,7 @@ body{
    width:90%;
    display:flex;
    flex-direction:column;
-   gap:15px;
+   gap:8px;
 }
 
 .choice-btn{
@@ -140,6 +152,28 @@ body{
 .game h2 {
   font-family: PixelMplus12;
   margin-top: 10px;
+}
+
+/* 正解・不正解の文字の共通設定 */
+.result {
+  -webkit-text-stroke: 0.1em #000;
+  paint-order: stroke;
+}
+
+/* 正解の文字 */
+.result.correct {
+  font-size:23px;
+  color: #00ff26;
+  margin-top: 8px;
+  margin-bottom: 3px;
+}
+
+/* 不正解の文字 */
+.result.incorrect {
+  font-size:23px;
+  color: #ff4545;
+  margin-top: 8px;
+  margin-bottom: 3px;
 }
 
 .clear-screen{
@@ -169,12 +203,16 @@ body{
     font-size:80px;
     color:rgb(252, 239, 5);
     text-shadow:4px 4px 10px black;
+   -webkit-text-stroke: 0.1em #000;
+   paint-order: stroke;
 }
 
 .clear-screen h2{
     font-family: PixelMplus12;
     font-size:50px;
     color:white;
+   -webkit-text-stroke: 0.1em #000;
+   paint-order: stroke;
 }
 
 @keyframes clearAppear{
@@ -208,12 +246,6 @@ body{
   color: rgb(182, 0, 0) !important;
 }
 
-.enemy-name{
-   color: #ffffff;
-   font-size:30px;
-   margin-top:8px;
-   margin-bottom:10px;
-}
 
 /* 敵が赤く光りながら揺れる */
 .enemy-img.hit {
@@ -337,10 +369,13 @@ body{
 
 /* 連続正解数 */
 .combo-text {
-  color: #fe0000;
+  color: #ff0000;
   font-size: 24px;
   font-weight: bold;
   text-align: center;
+  -webkit-text-stroke: 0.1em #000;
+  paint-order: stroke;
+  margin-top: 5px;
 }
 
 /* アイテム獲得・使用メッセージ */
@@ -349,6 +384,8 @@ body{
   font-size: 20px;
   font-weight: bold;
   text-align: center;
+  -webkit-text-stroke: 0.1em #000;
+  paint-order: stroke;
 }
 
 /* アイテムボタン */
@@ -384,6 +421,8 @@ body{
   font-size: 20px;
   font-weight: bold;
   text-align: center;
+  -webkit-text-stroke: 0.1em #000;
+  paint-order: stroke;
 }
 
 /* 撃破時の画面フラッシュ */

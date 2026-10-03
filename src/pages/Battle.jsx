@@ -175,6 +175,7 @@ function saveWrongQuestion(question) {
 
   if (index === quiz.answer) {
     //正解
+    
     setResult("正解！");
 
     // 敵が攻撃を受けた状態にする
@@ -418,14 +419,16 @@ function saveWrongQuestion(question) {
 
       </div>
 
+      <p className={`result ${result === "正解！" ? "correct" : "incorrect"}`}>
+       {result}
+      </p>
+
       {/* 不正解だった場合、正解を表示 */}
       {result === "不正解！" && (
         <p className="correct-answer">
           正解：{quiz.choices[quiz.answer]}
         </p>
       )}
-
-      <h2>{result}</h2>
 
       {/* 次の問題・戻るボタン */}
       {!battleClear && !battleFailed && (

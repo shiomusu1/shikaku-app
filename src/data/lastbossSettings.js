@@ -3,7 +3,7 @@ const lastbossSettings = {
 
     title: "ラスボス",
     subtitle: "ラスボス",
-    enemyImage: "/image/background1.jpg",
+    enemyImage: "/image/battlelastboss_enemy.png",
     backgroundImage: "/image/background_lastboss.png",
     weakBackgroundImage: "/image/background_lastboss.png",
   

@@ -2,7 +2,7 @@ const bossSettings = {
   1: {
     title: "ボス1",
     subtitle: "ストラテジ系問題",
-    enemyImage: "/image/background_strategy.png",
+    enemyImage: "/image/battlestrategy_enemy.png",
     backgroundImage: "/image/background_strategy.png",
     weakBackgroundImage: "/image/background1_strategy.png",
   },
@@ -10,7 +10,7 @@ const bossSettings = {
   2: {
     title: "ボス2",
     subtitle: "マネジメント系問題",
-    enemyImage: "/image/background2.jpg",
+    enemyImage: "/image/battlemanagement_enemy.png",
     backgroundImage: "/image/background_management.png",
     weakBackgroundImage: "/image/background_management.png",
   },
@@ -18,7 +18,7 @@ const bossSettings = {
   3: {
     title: "ボス3",
     subtitle: "テクノロジ系問題",
-    enemyImage: "/image/background1.jpg",
+    enemyImage: "/image/battletechnology_enemy.png",
     backgroundImage: "/image/background_technology.png",
     weakBackgroundImage: "/image/background_technology.png", 
   },

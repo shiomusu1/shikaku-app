@@ -4,7 +4,7 @@ const battleSettings = {
     subtitle: "企業活動・経営",
     enemyImage: "/image/battle1_enemy.png",
     backgroundImage: "/image/background1.png",
-    weakBackgroundImage: "/image/background1.jpeg",
+    weakBackgroundImage: "/image/background1.png",
   },
 
   2: {
@@ -12,7 +12,7 @@ const battleSettings = {
     subtitle: "法務・知的財産",
     enemyImage: "/image/battle2_enemy.png",
     backgroundImage: "/image/background2.png",
-    weakBackgroundImage: "/image/background2.jpeg",
+    weakBackgroundImage: "/image/background2.png",
   },
 
   3: {
