@@ -16,7 +16,7 @@ function Start() {
    >
      {!revealed && (
        <span className="cloud-intro-text">
-         TAP TO START
+         ▶ぼうけんをはじめる
        </span>
      )}
    </div>
