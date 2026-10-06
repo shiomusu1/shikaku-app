@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import './eriasentaku.css';
+import areaBackground from "../assets/forest.jpg";
+import './Eriasentaku.css';
 
 function Eriasentaku() {
   const navigate = useNavigate();
@@ -65,41 +66,57 @@ const goToBattle10 = () => {
 };
 
   return (
-    <div>
+        <div className="eriasentaku">
+        <div className="area-viewport">
+        <div className="area-map">
+
+      {/* 背景画像 */}
+      <img
+        className="area-background"
+        src={areaBackground}
+        alt="エリア選択画面の背景"
+      />
+
+      {/* 背景画像の上に置くボタン */}
+      <div className="area-buttons">
+
       <h1>エリア選択</h1>
-      <button onClick={goToBattle1}>
+      <button className="area1-button" onClick={goToBattle1}>
         ①企業活動・経営
       </button>
-      <button onClick={goToBattle2}>
+      <button className="area2-button" onClick={goToBattle2}>
         ②法務・知的財産
       </button>
-      <button onClick={goToBattle3}>
+      <button className="area3-button" onClick={goToBattle3}>
         ③システム戦略
       </button>
-      <button onClick={goToBattle4}>
+      <button className="area4-button" onClick={goToBattle4}>
         ④プロジェクト管理
       </button>
-      <button onClick={goToBattle5}>
+      <button className="area5-button" onClick={goToBattle5}>
         ⑤サービスマネジメント
       </button>
-      <button onClick={goToBattle6}>
+      <button className="area6-button" onClick={goToBattle6}>
         ⑥システム開発
       </button>
-      <button onClick={goToBattle7}>
+      <button className="area7-button" onClick={goToBattle7}>
         ⑦コンピュータ基礎
       </button>
-      <button onClick={goToBattle8}>
+      <button className="area8-button" onClick={goToBattle8}>
         ⑧ネットワーク
       </button>
-      <button onClick={goToBattle9}>
+      <button className="area9-button" onClick={goToBattle9}>
         ⑨データベース
       </button>
-      <button onClick={goToBattle10}>
+      <button className="area10-button" onClick={goToBattle10}>
         ⑩セキュリティ
       </button>
-      <button onClick={() => navigate("/start")}>
-        スタート画面へ戻る
+      <button className="back-button" onClick={() => navigate("/start")}>
+        スタート画面へ
       </button>
+       </div>
+    </div>
+    </div>
     </div>
   );
 }
