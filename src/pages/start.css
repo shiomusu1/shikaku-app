@@ -1,126 +1,177 @@
+/* =========================
+   画面全体
+========================= */
 .start {
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
+  background: #000;
 }
 
-.start img {
+/* =========================
+   スワイプできる表示領域
+========================= */
+.map-viewport {
+  position: absolute;
+  inset: 0;
+  overflow: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-x pan-y;
+  scrollbar-width: none;
+}
+
+.map-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+/* =========================
+   マップ本体
+========================= */
+.map-stage {
+  position: relative;
+
+  /* 全画面では画面いっぱいに表示 */
+  width: max(100vw, 177.7778dvh);
+  aspect-ratio: 16 / 9;
+  flex-shrink: 0;
+}
+
+/* マップ画像 */
+.map-stage > img {
+  display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  display: block;
+  object-fit: contain;
 }
 
-/* ボタン共通 */
-.area-button,
-.boss-button,
-.lastboss-button {
+/* =========================
+   ボタン共通
+========================= */
+.map-stage .area-button,
+.map-stage .boss-button,
+.map-stage .lastboss-button {
   position: absolute;
   z-index: 10;
 
   width: 250px;
-  padding: 15px 20px;
-  font-size: 18px;
-  cursor: pointer;
+  max-width: 28%;
+  padding: 15px 12px;
 
+  font-size: 18px;
   box-sizing: border-box;
   margin: 0;
-  transform: none;
+
+  border: 2px solid white;
+  cursor: pointer;
+
+  transform: translate(-50%, -50%);
   transition: none;
-
-  /* ボタンの大きさを固定 */
-  border: 2px solid black;
 }
 
-/* ホバーしても位置・大きさを変えない */
-.area-button:hover,
-.boss-button:hover,
-.lastboss-button:hover {
-  transform: none;
-  margin: 0;
-}
-
-/* 10分野 */
-.area-button {
+/* 10分野のエリア */
+.map-stage .area-button {
   top: 50%;
-  left: 10%;
+  left: 20%;
 }
 
-/* 三系統 */
-.boss-button {
+/* 三系統のボス */
+.map-stage .boss-button {
   top: 50%;
-  left: 43%;
+  left: 54%;
 }
 
 /* ラストボス */
-.lastboss-button {
+.map-stage .lastboss-button {
   top: 50%;
-  left: 75%;
+  left: 85%;
 }
 
-/* スタート画面ではボタンを動かさない */
-.start-buttons button,
-.start .area-button,
-.start .boss-button,
-.start .lastboss-button {
-  position: absolute;
-  transition: none;
-}
-
-.start-buttons button:hover,
-.start .area-button:hover,
-.start .boss-button:hover,
-.start .lastboss-button:hover {
-  top: auto;
-  transform: none;
-}
-
-.start .area-button:hover {
+/* ホバーしてもボタンがずれない */
+.map-stage .area-button:hover,
+.map-stage .boss-button:hover,
+.map-stage .lastboss-button:hover {
   top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.start .boss-button:hover {
-  top: 50%;
-}
-
-.start .lastboss-button:hover {
-  top: 50%;
-}
-
-/* 雲を置く範囲 */
-.cloud-frame {
+/* =========================
+   マップの周囲の雲
+========================= */
+.map-stage .cloud-frame {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 6;
   pointer-events: none;
   overflow: hidden;
 }
 
-/* 雲の列 */
 .cloud-row {
   position: absolute;
 }
 
-/* 小さい雲の丸 */
+/* 雲の丸 */
 .puff {
   position: absolute;
   display: block;
+
   background: white;
   border-radius: 50%;
   filter: blur(11px);
+
   animation: cloudPuff 3s ease-in-out infinite alternate;
 }
 
-/* 丸ごとに大きさと位置をずらす */
-.puff-1 { width: 75px; height: 75px; left: 0; top: 20px; }
-.puff-2 { width: 95px; height: 85px; left: 45px; top: 0; animation-delay: -1s; }
-.puff-3 { width: 65px; height: 60px; left: 105px; top: 25px; animation-delay: -2s; }
-.puff-4 { width: 100px; height: 80px; left: 150px; top: 5px; animation-delay: -0.5s; }
-.puff-5 { width: 70px; height: 65px; left: 220px; top: 25px; animation-delay: -1.5s; }
-.puff-6 { width: 90px; height: 75px; left: 270px; top: 5px; animation-delay: -2.5s; }
+/* 雲の形 */
+.puff-1 {
+  width: 75px;
+  height: 75px;
+  left: 0;
+  top: 20px;
+}
 
-/* 上側 */
+.puff-2 {
+  width: 95px;
+  height: 85px;
+  left: 45px;
+  top: 0;
+  animation-delay: -1s;
+}
+
+.puff-3 {
+  width: 65px;
+  height: 60px;
+  left: 105px;
+  top: 25px;
+  animation-delay: -2s;
+}
+
+.puff-4 {
+  width: 100px;
+  height: 80px;
+  left: 150px;
+  top: 5px;
+  animation-delay: -0.5s;
+}
+
+.puff-5 {
+  width: 70px;
+  height: 65px;
+  left: 220px;
+  top: 25px;
+  animation-delay: -1.5s;
+}
+
+.puff-6 {
+  width: 90px;
+  height: 75px;
+  left: 270px;
+  top: 5px;
+  animation-delay: -2.5s;
+}
+
+/* 上の雲 */
 .cloud-top {
   top: -35px;
   left: 0;
@@ -128,7 +179,7 @@
   height: 130px;
 }
 
-/* 下側 */
+/* 下の雲 */
 .cloud-bottom {
   bottom: -45px;
   left: 0;
@@ -136,7 +187,7 @@
   height: 130px;
 }
 
-/* 左側 */
+/* 左の雲 */
 .cloud-left {
   top: 80px;
   left: -50px;
@@ -144,7 +195,7 @@
   height: calc(100% - 160px);
 }
 
-/* 右側 */
+/* 右の雲 */
 .cloud-right {
   top: 80px;
   right: -50px;
@@ -152,7 +203,7 @@
   height: calc(100% - 160px);
 }
 
-/* ふわふわ膨らむ */
+/* 雲がふわふわ動く */
 @keyframes cloudPuff {
   0% {
     transform: scale(0.95);
@@ -165,36 +216,71 @@
   }
 }
 
-/* ボタンを雲より手前に */
-.start .area-button,
-.start .boss-button,
-.start .lastboss-button {
-  z-index: 5;
-}
-
-
-/* 最初に画面全体を覆う雲 */
-.cloud-intro {
-  position: absolute;
-  inset: -20px;
+/* =========================
+   最初に画面を覆う雲
+========================= */
+.start .cloud-intro {
+  position: fixed;
+  inset: 0;
   z-index: 20;
   cursor: pointer;
-
+  visibility: visible;
   background:
-    radial-gradient(ellipse at 10% 15%, rgba(255,255,255,0.85) 0 12%, transparent 22%),
-    radial-gradient(ellipse at 35% 10%, rgba(255,255,255,0.85) 0 15%, transparent 25%),
-    radial-gradient(ellipse at 65% 15%, rgba(255,255,255,0.85) 0 16%, transparent 26%),
-    radial-gradient(ellipse at 90% 20%, rgba(255,255,255,0.85) 0 14%, transparent 25%),
-    radial-gradient(ellipse at 15% 50%, rgba(255,255,255,0.85) 0 18%, transparent 28%),
-    radial-gradient(ellipse at 50% 45%, rgba(255,255,255,0.85) 0 30%, transparent 45%),
-    radial-gradient(ellipse at 85% 50%, rgba(255,255,255,0.85) 0 18%, transparent 28%),
-    radial-gradient(ellipse at 15% 85%, rgba(255,255,255,0.85) 0 17%, transparent 27%),
-    radial-gradient(ellipse at 50% 90%, rgba(255,255,255,0.85) 0 18%, transparent 28%),
-    radial-gradient(ellipse at 85% 85%, rgba(255,255,255,0.85) 0 17%, transparent 27%),
-    rgba(255,255,255,0.65);
+    radial-gradient(
+      ellipse at 10% 15%,
+      rgba(255, 255, 255, 0.85) 0 12%,
+      transparent 22%
+    ),
+    radial-gradient(
+      ellipse at 35% 10%,
+      rgba(255, 255, 255, 0.85) 0 15%,
+      transparent 25%
+    ),
+    radial-gradient(
+      ellipse at 65% 15%,
+      rgba(255, 255, 255, 0.85) 0 16%,
+      transparent 26%
+    ),
+    radial-gradient(
+      ellipse at 90% 20%,
+      rgba(255, 255, 255, 0.85) 0 14%,
+      transparent 25%
+    ),
+    radial-gradient(
+      ellipse at 15% 50%,
+      rgba(255, 255, 255, 0.85) 0 18%,
+      transparent 28%
+    ),
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(255, 255, 255, 0.85) 0 30%,
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 85% 50%,
+      rgba(255, 255, 255, 0.85) 0 18%,
+      transparent 28%
+    ),
+    radial-gradient(
+      ellipse at 15% 85%,
+      rgba(255, 255, 255, 0.85) 0 17%,
+      transparent 27%
+    ),
+    radial-gradient(
+      ellipse at 50% 90%,
+      rgba(255, 255, 255, 0.85) 0 18%,
+      transparent 28%
+    ),
+    radial-gradient(
+      ellipse at 85% 85%,
+      rgba(255, 255, 255, 0.85) 0 17%,
+      transparent 27%
+    ),
+    rgba(255, 255, 255, 0.65);
 
   opacity: 1;
   visibility: visible;
+
   transition:
     opacity 1.2s ease,
     transform 1.5s ease,
@@ -206,7 +292,9 @@
   position: absolute;
   top: 50%;
   left: 50%;
+
   transform: translate(-50%, -50%);
+
   color: #8bafc8;
   font-family: PixelMplus12;
   font-size: 22px;
@@ -221,6 +309,7 @@
   transform: scale(1.12);
   visibility: hidden;
   pointer-events: none;
+
   transition:
     opacity 1.2s ease,
     transform 1.5s ease,
