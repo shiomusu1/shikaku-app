@@ -176,6 +176,12 @@ body{
   margin-bottom: 3px;
 }
 
+.correct-answer{
+  color: #ffff00;
+  -webkit-text-stroke: 0.1em #000;
+  paint-order: stroke;
+}
+
 .clear-screen{
     font-family: PixelMplus12;
     

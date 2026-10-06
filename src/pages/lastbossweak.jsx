@@ -279,10 +279,16 @@ function LastBossWeak() {
 
       </div>
 
+      <p className={`result ${result === "正解！" ? "correct" : "incorrect"}`}>
+       {result}
+      </p>
 
-      <h2>
-        {result}
-      </h2>
+      {/* 不正解だった場合、正解を表示 */}
+      {result === "不正解！" && (
+        <p className="correct-answer">
+          正解：{quiz.choices[quiz.answer]}
+        </p>
+      )}
 
 
       {answered && (
