@@ -317,15 +317,18 @@ function saveWrongQuestion(question) {
         HP {Math.round(enemyHp)} / 100
       </div>
 
-      <div className="question">
-
       {/* 連続正解数 */}
       <p className="combo-text">
         {combo} COMBO!!
       </p>
 
+      {/* 何問目 */}
+      <p className="question-count">
+          第{currentQuestion + 1}問 / 全{quizList.length}問
+      </p>
+
       {/* 問題表示 */}
-      <div className="question"></div>
+      <div className="question">
 
         <p>{quiz.question}</p>
 

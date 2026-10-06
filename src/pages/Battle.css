@@ -104,20 +104,35 @@ body{
   transition: width 0.5s ease-out;
 }
 
-.question{
-   padding: 0.5em 1em;
-   font-weight: bold;
-   border: solid 3px #ffffff;
-   background:#000000;
-   color: #ffffff;
-   font-size:28px;
-   text-align:center;
-   margin-top:10px;
-   margin-bottom:15px;
-   line-height: 1.2;
-   white-space: pre-line;
+.question-count {
+  padding: 0.5em 1em;
+  font-weight: bold;
+  border: solid 3px #ffffff;
+  background: #000000;
+  color: #ffffff;
+  font-size: 20px;
+  text-align: left;
+  margin-top: -40px;
+  line-height: 1.2;
+  white-space: pre-line;
+  align-self: flex-start;
+  margin-left: 31px;
 }
 
+.question{
+  width: 95%;
+  box-sizing: border-box;
+  padding: 0.5em 1em;
+  font-weight: bold;
+  border: solid 3px #ffffff;
+  background:#000000;
+  color: #ffffff;
+  font-size:28px;
+  text-align:center;
+  margin-bottom:15px;
+  line-height: 1.2;
+  white-space: pre-line;
+}
 
 .question-image {
   display: block;
@@ -127,7 +142,7 @@ body{
 }
 
 .choices{
-   width:90%;
+   width:95%;
    display:flex;
    flex-direction:column;
    gap:8px;
@@ -386,7 +401,7 @@ body{
 
 /* アイテム獲得・使用メッセージ */
 .item-message {
-  color: #fff3a6;
+  color: #fff200;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -400,7 +415,7 @@ body{
   margin: 15px auto;
   padding: 12px 24px;
 
-  background-color: #ffe58a;
+  background-color: #fff200;
   color: #333;
 
   border: 3px solid #d6a83e;

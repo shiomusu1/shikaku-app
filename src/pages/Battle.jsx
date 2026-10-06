@@ -361,6 +361,11 @@ function saveWrongQuestion(question) {
       <p className="combo-text">
         {combo} COMBO!! 
       </p>
+      
+      {/* 何問目 */}
+      <p className="question-count">
+          第{currentQuestion + 1}問 / 全{quizList.length}問
+      </p>
 
       {/* 問題表示 */}
       <div className="question">
