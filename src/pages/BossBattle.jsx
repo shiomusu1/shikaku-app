@@ -343,6 +343,11 @@ function saveWrongQuestion(question) {
         {combo} COMBO!! 
       </p>
 
+      {/* 何問目 */}
+      <p className="question-count">
+          第{currentQuestion + 1}問 / 全{quizList.length}問
+      </p>
+
       {/* 問題表示 */}
       <div className="question">
 
@@ -366,13 +371,38 @@ function saveWrongQuestion(question) {
 
       {/* アイテムボタン */}
       {hasItem && !itemUsed && (
-        <button
-          className="item-btn"
-          onClick={useItem}
-          disabled={answered}
-        >
-          アイテムを使う
-        </button>
+        <div className="item-area">
+
+          <button
+            className="item-btn"
+            onClick={useItem}
+            disabled={answered}
+          >
+            アイテムを使う
+          </button>
+
+          {/* アイテム説明ボタン */}
+          <button
+            className="item-help-btn"
+            onClick={() => setShowItemInfo(!showItemInfo)}
+          >
+            ?
+          </button>
+
+          {/* アイテム説明 */}
+          {showItemInfo && (
+            <div className="item-info">
+              <p>アイテムについて</p>
+              <p>
+                5問連続で正解すると獲得！<br />
+                使用すると選択肢が2つ消えます。<br />
+                1回のバトルで1度だけ獲得・使用できます。<br />
+                好きなタイミングで使用できます。<br />
+              </p>
+            </div>
+          )}
+
+        </div>
       )}
       
       {/* 選択肢 */}
