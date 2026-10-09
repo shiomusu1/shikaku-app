@@ -1,0 +1,112 @@
+h1 {
+    font-family: PixelMplus12;
+    font-size: 22px;
+    color: #000000;
+}
+
+body {
+  margin: 0;
+  font-family: PixelMplus12;
+  background: #f5f7fa;
+}
+
+button {
+ font-family: PixelMplus12;
+ padding: 0.5em 1em; /* 内側の余白 */
+ font-weight:bold;
+ border: solid 3px #FFFFFF;
+ background:#000000;
+ color: #ffffff;
+ font-size: 15px;
+ border-radius: 10px;
+ cursor: pointer;
+ transition: all 0.1s ease;
+}
+
+button:hover {
+  background: #4a6b7a;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   エリア選択画面
+========================= */
+
+.lastboss {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* forest.jpgを背景にする */
+/* スワイプできる表示領域 */
+.lastboss-viewport {
+  position: absolute;
+  inset: 0;
+
+  overflow: auto;
+
+  overscroll-behavior: contain;
+  touch-action: pan-x pan-y;
+
+  scrollbar-width: none;
+}
+
+.lastboss-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+/* マップ本体 */
+.lastboss-map {
+  position: relative;
+
+  width: max(100vw, 177.7778dvh);
+
+  aspect-ratio: 16 / 9;
+}
+
+/* 背景画像 */
+.lastboss-background {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  z-index: 0;
+}
+/* ボタンを背景画像より前にする */
+.lastboss-buttons {
+  position: absolute;
+  inset: 0;  
+  z-index: 1;
+}
+
+/* ボタンをマップ上で自由に配置 */
+.lastboss-buttons button {
+  position: absolute;
+}
+
+/* ボタンの位置 */
+.lastboss1-button {
+  top: 40%;
+  left: 17%;
+}
+
+.lastboss2-button {
+  top: 40%;
+  left: 44.3%;
+}
+
+.lastboss3-button {
+  top: 40%;
+  left: 71.6%;
+}
+
+.lastboss-back-button {
+  top: 77%;
+  left: 79%;
+}
