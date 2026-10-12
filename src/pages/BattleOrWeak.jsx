@@ -39,15 +39,15 @@ function BattleOrWeak() {
       <h1> エリア{areaName} モード選択</h1>
 
       <button className="battleorweak1-button" onClick={() => navigate(`/battle/${area}`)}>
-        戦闘
+        ▷戦闘
       </button>
 
       <button className="battleorweak2-button" onClick={() => navigate(`/weak/${area}`)}>
-        苦手問題
+        ▷苦手問題
       </button>
 
       <button className="battleorweak-back-button" onClick={() => navigate("/eriasentaku")}>
-        エリア選択画面へ戻る
+        ▷エリア選択画面へ戻る
       </button>
     </div>
     </div>

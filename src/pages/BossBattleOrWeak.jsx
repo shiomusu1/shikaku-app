@@ -33,15 +33,15 @@ function BossBattleOrWeak() {
       <h1>ボス{bossName} モード選択</h1>
 
       <button className="bossbattleorweak1-button" onClick={() => navigate(`/boss/${boss}`)}>
-        戦闘
+        ▷戦闘
       </button>
 
       <button className="bossbattleorweak2-button" onClick={() => navigate(`/Bossweak/${boss}`)}>
-        苦手問題
+        ▷苦手問題
       </button>
 
       <button className="bossbattleorweak-back-button" onClick={() => navigate("/boss")}>
-        ボス選択画面へ戻る
+        ▷ボス選択画面へ戻る
       </button>
 
     </div>
