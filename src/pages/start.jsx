@@ -53,6 +53,14 @@ return (
             <span className="puff puff-4" />
             <span className="puff puff-5" />
             <span className="puff puff-6" />
+            <span className="puff puff-7" />
+            <span className="puff puff-8" />
+            <span className="puff puff-9" />
+            <span className="puff puff-10" />
+            <span className="puff puff-11" />
+            <span className="puff puff-12" /> 
+            <span className="puff puff-13" /> 
+            <span className="puff puff-14" />
           </div>
 
           <div className="cloud-row cloud-bottom">
@@ -62,6 +70,14 @@ return (
             <span className="puff puff-4" />
             <span className="puff puff-5" />
             <span className="puff puff-6" />
+            <span className="puff puff-7" />
+            <span className="puff puff-8" />
+            <span className="puff puff-9" />
+            <span className="puff puff-10" />
+            <span className="puff puff-11" />
+            <span className="puff puff-12" />  
+            <span className="puff puff-13" />
+            <span className="puff puff-14" />
           </div>
 
           <div className="cloud-row cloud-left">
@@ -70,6 +86,9 @@ return (
             <span className="puff puff-3" />
             <span className="puff puff-4" />
             <span className="puff puff-5" />
+            <span className="puff puff-6" />
+            <span className="puff puff-7" />
+            <span className="puff puff-8" />
           </div>
 
           <div className="cloud-row cloud-right">
@@ -78,6 +97,9 @@ return (
             <span className="puff puff-3" />
             <span className="puff puff-4" />
             <span className="puff puff-5" />
+            <span className="puff puff-6" />
+            <span className="puff puff-7" />
+            <span className="puff puff-8" />
           </div>
         </div>
       </div>

@@ -96,9 +96,11 @@
   transform: translate(-50%, -50%);
 }
 
+
 /* =========================
    マップの周囲の雲
 ========================= */
+
 .map-stage .cloud-frame {
   position: absolute;
   inset: 0;
@@ -115,93 +117,259 @@
 .puff {
   position: absolute;
   display: block;
-
   background: white;
   border-radius: 50%;
   filter: blur(11px);
-
   animation: cloudPuff 3s ease-in-out infinite alternate;
 }
 
-/* 雲の形 */
-.puff-1 {
-  width: 75px;
-  height: 75px;
+/* 上下の雲：横に連なる形 */
+.cloud-top,
+.cloud-bottom {
   left: 0;
-  top: 20px;
+  width: 100%;
+  height: 100px;
 }
 
-.puff-2 {
-  width: 95px;
-  height: 85px;
-  left: 45px;
+.cloud-top {
+  top: -25px;
+}
+
+.cloud-bottom {
+  bottom: -30px;
+}
+
+/* 左右の雲：縦に連なる形 */
+.cloud-left,
+.cloud-right {
   top: 0;
+  width: 100px;
+  height: 100%;
+}
+
+.cloud-left {
+  left: -30px;
+}
+
+.cloud-right {
+  right: -30px;
+}
+
+/* 上下の雲を横一列に配置 */
+.cloud-top .puff,
+.cloud-bottom .puff {
+  top: 0;
+}
+
+/* 下側の雲は上下を反転 */
+.cloud-bottom .puff {
+  top: auto;
+  bottom: 0;
+}
+
+/* 左右の雲を縦一列に配置 */
+.cloud-left .puff,
+.cloud-right .puff {
+  left: 0;
+  top: 0;
+}
+
+/* 右側の雲は左右を反転 */
+.cloud-right .puff {
+  left: auto;
+  right: 0;
+}
+
+/* 雲の丸のサイズと間隔 */
+.cloud-top .puff:nth-child(1),
+.cloud-bottom .puff:nth-child(1) {
+  width: 140px;
+  height: 120px;
+  left: 0;
+}
+
+.cloud-top .puff:nth-child(2),
+.cloud-bottom .puff:nth-child(2) {
+  width: 150px;
+  height: 110px;
+  left: 8%;
   animation-delay: -1s;
 }
 
-.puff-3 {
-  width: 65px;
-  height: 60px;
-  left: 105px;
-  top: 25px;
+.cloud-top .puff:nth-child(3),
+.cloud-bottom .puff:nth-child(3) {
+  width: 130px;
+  height: 110px;
+  left: 18%;
   animation-delay: -2s;
 }
 
-.puff-4 {
-  width: 100px;
-  height: 80px;
-  left: 150px;
-  top: 5px;
+.cloud-top .puff:nth-child(4),
+.cloud-bottom .puff:nth-child(4) {
+  width: 160px;
+  height: 110px;
+  left: 25%;
   animation-delay: -0.5s;
 }
 
-.puff-5 {
-  width: 70px;
-  height: 65px;
-  left: 220px;
-  top: 25px;
+.cloud-top .puff:nth-child(5),
+.cloud-bottom .puff:nth-child(5) {
+  width: 130px;
+  height: 110px;
+  left: 35%;
   animation-delay: -1.5s;
 }
 
-.puff-6 {
-  width: 90px;
-  height: 75px;
-  left: 270px;
-  top: 5px;
+.cloud-top .puff:nth-child(6),
+.cloud-bottom .puff:nth-child(6) {
+  width: 120px;
+  height: 110px;
+  left: 40%;
   animation-delay: -2.5s;
 }
 
-/* 上の雲 */
-.cloud-top {
-  top: -35px;
-  left: 0;
-  width: 100%;
-  height: 130px;
+.cloud-top .puff:nth-child(7),
+.cloud-bottom .puff:nth-child(7) {
+  width: 160px;
+  height: 110px;
+  left: 45%;
+  animation-delay: -0.5s;
 }
 
-/* 下の雲 */
-.cloud-bottom {
-  bottom: -45px;
-  left: 0;
-  width: 100%;
-  height: 130px;
-}
-
-/* 左の雲 */
-.cloud-left {
-  top: 80px;
-  left: -50px;
+.cloud-top .puff:nth-child(8),
+.cloud-bottom .puff:nth-child(8) {
   width: 130px;
-  height: calc(100% - 160px);
+  height: 110px;
+  left: 55%;
+  animation-delay: -1s;
 }
 
-/* 右の雲 */
-.cloud-right {
-  top: 80px;
-  right: -50px;
+.cloud-top .puff:nth-child(9),
+.cloud-bottom .puff:nth-child(9) {
   width: 130px;
-  height: calc(100% - 160px);
+  height: 110px;
+  left: 65%;
+  animation-delay: -1.5s;
 }
+
+.cloud-top .puff:nth-child(10),
+.cloud-bottom .puff:nth-child(10) {
+  width: 160px;
+  height: 110px;
+  left: 75%;
+  animation-delay: -2s;
+}
+
+.cloud-top .puff:nth-child(11),
+.cloud-bottom .puff:nth-child(11) {
+  width: 160px;
+  height: 110px;
+  left: 85%;
+  animation-delay: -2.5s;
+}
+
+.cloud-top .puff:nth-child(12),
+.cloud-bottom .puff:nth-child(12) {
+  width: 160px;
+  height: 110px;
+  left: 95%;
+  animation-delay: -3s;
+}
+
+.cloud-top .puff:nth-child(13),
+.cloud-bottom .puff:nth-child(13) {
+  width: 160px;
+  height: 110px;
+  left: 70%;
+  animation-delay: -3s;
+}
+
+.cloud-top .puff:nth-child(14),
+.cloud-bottom .puff:nth-child(14) {
+  width: 160px;
+  height: 110px;
+  left: 60%;
+  animation-delay: -3s;
+}
+
+/* 左右の雲は縦向きに配置 */
+.cloud-left .puff,
+.cloud-right .puff {
+  left: 0;
+  top: 0;
+}
+
+.cloud-left .puff:nth-child(1),
+.cloud-right .puff:nth-child(1) {
+  width: 90px;
+  height: 120px;
+  top: 0;
+}
+
+.cloud-left .puff:nth-child(2),
+.cloud-right .puff:nth-child(2) {
+  width: 100px;
+  height: 150px;
+  top: 10%;
+  animation-delay: -1s;
+}
+
+.cloud-left .puff:nth-child(3),
+.cloud-right .puff:nth-child(3) {
+  width: 110px;
+  height: 130px;
+  top: 25%;
+  animation-delay: -2s;
+}
+
+.cloud-left .puff:nth-child(4),
+.cloud-right .puff:nth-child(4) {
+  width: 110px;
+  height: 130px;
+  top: 35%;
+  animation-delay: -0.5s;
+}
+
+.cloud-left .puff:nth-child(5),
+.cloud-right .puff:nth-child(5) {
+  width: 90px;
+  height: 130px;
+  top: 45%;
+  animation-delay: -1.5s;
+}
+
+.cloud-left .puff:nth-child(6),
+.cloud-right .puff:nth-child(6) {
+  width: 90px;
+  height: 120px;
+  top: 60%;
+  animation-delay: -2.5s;
+}
+
+.cloud-left .puff:nth-child(7),
+.cloud-right .puff:nth-child(7) {
+  width: 110px;
+  height: 120px;
+  top: 70%;
+  animation-delay: -1.5s;
+}
+
+.cloud-left .puff:nth-child(8),
+.cloud-right .puff:nth-child(8) {
+  width: 100px;
+  height: 110px;
+  top: 80%;
+  animation-delay: -1.5s;
+}
+
+.cloud-left .puff:nth-child(9),
+.cloud-right .puff:nth-child(9) {
+  width: 90px;
+  height: 130px;
+  top: 90%;
+  animation-delay: -1.5s;
+}
+
 
 /* 雲がふわふわ動く */
 @keyframes cloudPuff {
@@ -295,7 +463,7 @@
 
   transform: translate(-50%, -50%);
 
-  color: #8bafc8;
+  color: #000000;
   font-family: PixelMplus12;
   font-size: 22px;
   font-weight: bold;

@@ -1,4 +1,7 @@
 import { useNavigate, useLocation } from "react-router-dom";
+import battleorweakBackground from "../assets/battleorweak.png";
+import"./battleorweak.css";
+
 
 function BattleOrWeak() {
   const navigate = useNavigate();
@@ -19,21 +22,36 @@ function BattleOrWeak() {
     10: "⑩セキュリティ",    
   }[area];
 
-  return (
-    <div>
+      return(
+        <div className="battleorweak">
+        <div className="battleorweak-viewport">
+        <div className="battleorweak-map">
+      
+             {/* 背景画像 */}
+              <img
+                className="battleorweak-background"
+                src={battleorweakBackground}
+                alt="エリア選択画面の背景"
+              />
+            
+              {/* 背景画像の上に置くボタン */}
+              <div className="battleorweak-buttons">
       <h1> エリア{areaName} モード選択</h1>
 
-      <button onClick={() => navigate(`/battle/${area}`)}>
+      <button className="battleorweak1-button" onClick={() => navigate(`/battle/${area}`)}>
         戦闘
       </button>
 
-      <button onClick={() => navigate(`/weak/${area}`)}>
+      <button className="battleorweak2-button" onClick={() => navigate(`/weak/${area}`)}>
         苦手問題
       </button>
 
-      <button onClick={() => navigate("/eriasentaku")}>
+      <button className="battleorweak-back-button" onClick={() => navigate("/eriasentaku")}>
         エリア選択画面へ戻る
       </button>
+    </div>
+    </div>
+    </div>
     </div>
   );
 }
