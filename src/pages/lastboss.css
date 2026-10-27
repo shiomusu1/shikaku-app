@@ -110,3 +110,8 @@ button:hover {
   top: 77%;
   left: 79%;
 }
+
+.lastboss-buttons button {
+  border: none;
+  outline: none;
+}

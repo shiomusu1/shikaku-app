@@ -22,13 +22,13 @@ function LastBoss() {
                 
       <h1>ラストボス モード選択</h1>
       <button className="lastboss1-button" onClick={() => navigate("/lastbossbattle")}>
-        戦闘
+        ▷戦闘
       </button>
       <button className="lastboss2-button" onClick={() => navigate("/lastbossweak")}>
-        苦手問題
+        ▷苦手問題
       </button>
       <button className="lastboss-back-button" onClick={() => navigate("/Start")}>
-        スタート画面へ戻る
+        ▷スタート画面へ戻る
       </button>
       </div>
    </div>

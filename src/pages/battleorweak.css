@@ -104,3 +104,8 @@ button:hover {
   top: 70%;
   left: 50%;
 }
+
+.battleorweak-buttons button {
+  border: none;
+  outline: none;
+}
