@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import bossbattleorweakBackground from "../assets/battleorweak.png";
+import bossbattleorweakBackground from "../assets/boss_battle_or_weak.png";
 import"./bossbattleorweak.css";
 
 
