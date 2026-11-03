@@ -36,7 +36,12 @@ function LastBossWeak() {
 
     return (
 
-      <div className="clear-screen">
+      <div
+        className="clear-screen"
+        style={{
+          backgroundImage: `url(${lastboss.weakBackgroundImage})`,
+        }}
+      >
 
         <h1>
           苦手問題

@@ -38,7 +38,12 @@ function Weak() {
 
     return (
 
-      <div className="clear-screen">
+      <div
+        className="clear-screen"
+        style={{
+          backgroundImage: `url(${boss.weakBackgroundImage})`,
+        }}
+      >
 
         <h1>
           苦手問題

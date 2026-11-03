@@ -4,7 +4,7 @@ const bossSettings = {
     subtitle: "ストラテジ系問題",
     enemyImage: "/image/battlestrategy_enemy.png",
     backgroundImage: "/image/background_strategy.jpeg",
-    weakBackgroundImage: "image/background_strategy.jpeg",
+    weakBackgroundImage: "/image/background_strategy.jpeg",
   },
 
   2: {
