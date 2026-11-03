@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import areaBackground from "../assets/forest3.jpg";
+import areaBackground from "../assets/forest.jpg";
 import './Eriasentaku.css';
 
 function Eriasentaku() {

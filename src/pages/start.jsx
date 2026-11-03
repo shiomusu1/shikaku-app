@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import startmap from "../assets/startmap3.png";
+import startmap from "../assets/startmap.png";
 import"./start.css";
 
 function Start() {

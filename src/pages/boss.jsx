@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import bossBackground from "../assets/river3.jpg";
+import bossBackground from "../assets/boss.png";
 import"./Boss.css";
 
 function Boss() {
