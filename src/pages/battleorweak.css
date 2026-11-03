@@ -93,16 +93,19 @@ button:hover {
 .battleorweak1-button {
   top: 40%;
   left: 33%;
+  font-size: 20px;
 }
 
 .battleorweak2-button {
   top: 50%;
   left: 33%;
+  font-size: 20px;
 }
 
 .battleorweak-back-button {
-  top: 70%;
-  left: 50%;
+  top: 69%;
+  left: 45%;
+  font-size: 20px;
 }
 
 .battleorweak-buttons button {
