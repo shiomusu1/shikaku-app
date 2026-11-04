@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Help from "../components/Help";
 
 import startmap from "../assets/startmapchange.png";
 import "./start.css";
@@ -11,6 +12,8 @@ function Start() {
   const [revealed, setRevealed] = useState(
     sessionStorage.getItem("startCloudSeen") === "true"
   );
+
+  const [showHelp, setShowHelp] = useState(false);
 
   const revealCloud = () => {
     setRevealed(true);
@@ -125,6 +128,23 @@ function Start() {
             ▶ぼうけんをはじめる
           </span>
         )}
+
+        {/* ヘルプボタン */}
+<button
+  className="help-open-button"
+  onClick={(e) => {
+    e.stopPropagation();
+    setShowHelp(true);
+  }}
+>
+  ?
+</button>
+
+{/* ヘルプ画面 */}
+<Help
+  isOpen={showHelp}
+  onClose={() => setShowHelp(false)}
+/>
       </div>
 
     </div>
