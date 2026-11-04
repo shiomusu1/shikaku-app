@@ -101,9 +101,12 @@
    マップの周囲の雲
 ========================= */
 
-.map-stage .cloud-frame {
-  position: absolute;
+.cloud-frame {
+  position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
   z-index: 6;
   pointer-events: none;
   overflow: hidden;
@@ -127,7 +130,8 @@
 .cloud-top,
 .cloud-bottom {
   left: 0;
-  width: 100%;
+  right: 0;
+  width: auto;
   height: 100px;
 }
 
@@ -143,8 +147,9 @@
 .cloud-left,
 .cloud-right {
   top: 0;
+  bottom: 0;
   width: 100px;
-  height: 100%;
+  height: auto;
 }
 
 .cloud-left {
