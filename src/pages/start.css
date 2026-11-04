@@ -73,19 +73,19 @@
 /* 10分野のエリア */
 .map-stage .area-button {
   top: 50%;
-  left: 21%;
+  left: 18.5%;
 }
 
 /* 三系統のボス */
 .map-stage .boss-button {
   top: 50%;
-  left: 53%;
+  left: 49.5%;
 }
 
 /* ラストボス */
 .map-stage .lastboss-button {
   top: 50%;
-  left: 84%;
+  left: 80.5%;
 }
 
 /* ホバーしてもボタンがずれない */
