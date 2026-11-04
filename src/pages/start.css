@@ -188,14 +188,14 @@
 /* 雲の丸のサイズと間隔 */
 .cloud-top .puff:nth-child(1),
 .cloud-bottom .puff:nth-child(1) {
-  width: 140px;
+  width: 160px;
   height: 120px;
   left: 0;
 }
 
 .cloud-top .puff:nth-child(2),
 .cloud-bottom .puff:nth-child(2) {
-  width: 150px;
+  width: 170px;
   height: 110px;
   left: 8%;
   animation-delay: -1s;
@@ -203,7 +203,7 @@
 
 .cloud-top .puff:nth-child(3),
 .cloud-bottom .puff:nth-child(3) {
-  width: 130px;
+  width: 150px;
   height: 110px;
   left: 18%;
   animation-delay: -2s;
@@ -211,7 +211,7 @@
 
 .cloud-top .puff:nth-child(4),
 .cloud-bottom .puff:nth-child(4) {
-  width: 160px;
+  width: 180px;
   height: 110px;
   left: 25%;
   animation-delay: -0.5s;
@@ -219,7 +219,7 @@
 
 .cloud-top .puff:nth-child(5),
 .cloud-bottom .puff:nth-child(5) {
-  width: 130px;
+  width: 150px;
   height: 110px;
   left: 35%;
   animation-delay: -1.5s;
@@ -227,7 +227,7 @@
 
 .cloud-top .puff:nth-child(6),
 .cloud-bottom .puff:nth-child(6) {
-  width: 120px;
+  width: 140px;
   height: 110px;
   left: 40%;
   animation-delay: -2.5s;
@@ -235,7 +235,7 @@
 
 .cloud-top .puff:nth-child(7),
 .cloud-bottom .puff:nth-child(7) {
-  width: 160px;
+  width: 170px;
   height: 110px;
   left: 45%;
   animation-delay: -0.5s;
@@ -243,7 +243,7 @@
 
 .cloud-top .puff:nth-child(8),
 .cloud-bottom .puff:nth-child(8) {
-  width: 130px;
+  width: 140px;
   height: 110px;
   left: 55%;
   animation-delay: -1s;
@@ -251,7 +251,7 @@
 
 .cloud-top .puff:nth-child(9),
 .cloud-bottom .puff:nth-child(9) {
-  width: 130px;
+  width: 150px;
   height: 110px;
   left: 65%;
   animation-delay: -1.5s;
@@ -259,7 +259,7 @@
 
 .cloud-top .puff:nth-child(10),
 .cloud-bottom .puff:nth-child(10) {
-  width: 160px;
+  width: 180px;
   height: 110px;
   left: 75%;
   animation-delay: -2s;
@@ -267,7 +267,7 @@
 
 .cloud-top .puff:nth-child(11),
 .cloud-bottom .puff:nth-child(11) {
-  width: 160px;
+  width: 180px;
   height: 110px;
   left: 85%;
   animation-delay: -2.5s;
@@ -275,7 +275,7 @@
 
 .cloud-top .puff:nth-child(12),
 .cloud-bottom .puff:nth-child(12) {
-  width: 160px;
+  width: 180px;
   height: 110px;
   left: 95%;
   animation-delay: -3s;
@@ -283,7 +283,7 @@
 
 .cloud-top .puff:nth-child(13),
 .cloud-bottom .puff:nth-child(13) {
-  width: 160px;
+  width: 180px;
   height: 110px;
   left: 70%;
   animation-delay: -3s;
@@ -291,7 +291,7 @@
 
 .cloud-top .puff:nth-child(14),
 .cloud-bottom .puff:nth-child(14) {
-  width: 160px;
+  width: 180px;
   height: 110px;
   left: 60%;
   animation-delay: -3s;
@@ -307,14 +307,14 @@
 .cloud-left .puff:nth-child(1),
 .cloud-right .puff:nth-child(1) {
   width: 90px;
-  height: 120px;
+  height: 140px;
   top: 0;
 }
 
 .cloud-left .puff:nth-child(2),
 .cloud-right .puff:nth-child(2) {
   width: 100px;
-  height: 150px;
+  height: 170px;
   top: 10%;
   animation-delay: -1s;
 }
@@ -322,7 +322,7 @@
 .cloud-left .puff:nth-child(3),
 .cloud-right .puff:nth-child(3) {
   width: 110px;
-  height: 130px;
+  height: 150px;
   top: 25%;
   animation-delay: -2s;
 }
@@ -330,7 +330,7 @@
 .cloud-left .puff:nth-child(4),
 .cloud-right .puff:nth-child(4) {
   width: 110px;
-  height: 130px;
+  height: 150px;
   top: 35%;
   animation-delay: -0.5s;
 }
@@ -338,7 +338,7 @@
 .cloud-left .puff:nth-child(5),
 .cloud-right .puff:nth-child(5) {
   width: 90px;
-  height: 130px;
+  height: 150px;
   top: 45%;
   animation-delay: -1.5s;
 }
@@ -346,7 +346,7 @@
 .cloud-left .puff:nth-child(6),
 .cloud-right .puff:nth-child(6) {
   width: 90px;
-  height: 120px;
+  height: 140px;
   top: 60%;
   animation-delay: -2.5s;
 }
@@ -354,7 +354,7 @@
 .cloud-left .puff:nth-child(7),
 .cloud-right .puff:nth-child(7) {
   width: 110px;
-  height: 120px;
+  height: 140px;
   top: 70%;
   animation-delay: -1.5s;
 }
@@ -362,7 +362,7 @@
 .cloud-left .puff:nth-child(8),
 .cloud-right .puff:nth-child(8) {
   width: 100px;
-  height: 110px;
+  height: 130px;
   top: 80%;
   animation-delay: -1.5s;
 }
@@ -370,7 +370,7 @@
 .cloud-left .puff:nth-child(9),
 .cloud-right .puff:nth-child(9) {
   width: 90px;
-  height: 130px;
+  height: 150px;
   top: 90%;
   animation-delay: -1.5s;
 }
