@@ -470,7 +470,7 @@
 
   color: #000000;
   font-family: PixelMplus12;
-  font-size: 22px;
+  font-size: 25px;
   font-weight: bold;
   letter-spacing: 3px;
   white-space: nowrap;
@@ -492,30 +492,35 @@
 
 .help-open-button {
   position: absolute;
-  top: 20px;
-  right: 25px;
+  top: 60%;
+  right: 44%;
   z-index: 100;
 
-  width: 48px;
-  height: 48px;
+  width: 145px;
+  height: 55px;
 
-  background: #263f5d;
-  color: #ffdf83;
+  background: #000000;
+  color: #ffffff;
 
-  border: 3px solid #d5ad53;
-  border-radius: 50%;
+  border: 3px solid #ffffff;
+  border-radius: 6px;
 
   font-family: PixelMplus12;
-  font-size: 26px;
+  font-size: 25px;
   font-weight: bold;
 
   cursor: pointer;
   transition: 0.2s;
+
+  box-shadow: 3px 3px 0 #493b29;
+}
+
+.help-open-button:hover {
+  transform: translateY(-2px);
 }
 
 .help-open-button:hover {
   transform: scale(1.1);
-  background: #80602b;
 }
 
 @media (max-width: 600px) {

@@ -137,7 +137,7 @@ function Start() {
     setShowHelp(true);
   }}
 >
-  ?
+  遊び方
 </button>
 
 {/* ヘルプ画面 */}
