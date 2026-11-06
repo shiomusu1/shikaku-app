@@ -33,21 +33,21 @@ function Start() {
             className="area-button"
             onClick={() => navigate("/eriasentaku")}
           >
-            10分野のエリア選択画面
+            10分野のエリア
           </button>
 
           <button
             className="boss-button"
             onClick={() => navigate("/boss")}
           >
-            三系統のボス選択画面
+            三系統のボス
           </button>
 
           <button
             className="lastboss-button"
             onClick={() => navigate("/lastboss")}
           >
-            ラストボス選択画面
+            ラストボス
           </button>
 
         </div>

@@ -74,18 +74,21 @@
 .map-stage .area-button {
   top: 50%;
   left: 18.5%;
+  font-size: 20px;
 }
 
 /* 三系統のボス */
 .map-stage .boss-button {
   top: 50%;
   left: 49.5%;
+  font-size: 20px;
 }
 
 /* ラストボス */
 .map-stage .lastboss-button {
   top: 50%;
   left: 80.5%;
+  font-size: 20px;
 }
 
 /* ホバーしてもボタンがずれない */
@@ -496,8 +499,8 @@
   right: 44%;
   z-index: 100;
 
-  width: 145px;
-  height: 55px;
+  width: 140px;
+  height: 54px;
 
   background: #000000;
   color: #ffffff;
