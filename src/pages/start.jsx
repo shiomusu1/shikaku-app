@@ -128,24 +128,24 @@ function Start() {
             ▶ぼうけんをはじめる
           </span>
         )}
-
-        {/* ヘルプボタン */}
-<button
-  className="help-open-button"
-  onClick={(e) => {
-    e.stopPropagation();
-    setShowHelp(true);
-  }}
->
-  遊び方
-</button>
-
-{/* ヘルプ画面 */}
-<Help
-  isOpen={showHelp}
-  onClose={() => setShowHelp(false)}
-/>
       </div>
+
+      {/* 遊び方ボタン */}
+      <button
+        className={`help-open-button ${revealed ? "after-reveal" : ""}`}
+        onClick={(e) => {
+          e.stopPropagation();
+          setShowHelp(true);
+        }}
+      >
+        遊び方
+      </button>
+
+      {/* ヘルプ画面 */}
+      <Help
+        isOpen={showHelp}
+        onClose={() => setShowHelp(false)}
+      />
 
     </div>
   );

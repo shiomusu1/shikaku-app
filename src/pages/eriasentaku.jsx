@@ -80,7 +80,7 @@ const goToBattle10 = () => {
       {/* 背景画像の上に置くボタン */}
       <div className="area-buttons">
 
-      <h1>エリア選択</h1>
+      <h1><span>エリア選択</span></h1>
       <button className="area1-button" onClick={goToBattle1}>
         ①企業活動・経営
       </button>

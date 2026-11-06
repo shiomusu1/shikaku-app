@@ -549,3 +549,18 @@
   }
 }
 
+/* 雲が晴れる前 */
+.help-open-button {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  z-index: 100;
+
+  transition: 0.5s;
+}
+
+/* 雲が晴れた後 */
+.help-open-button.after-reveal {
+  top: 20px;
+  right: 25px;
+}
