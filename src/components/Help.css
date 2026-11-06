@@ -99,6 +99,7 @@
 
 .help-description p {
   font-size: 13px;
+  white-space: pre-line;
   line-height: 2;
 }
 

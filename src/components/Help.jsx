@@ -20,6 +20,12 @@ function Help({ isOpen, onClose }) {
         "大きく分けて10分野、3系統、まとめ問題の3ステージあります。自分に合ったステージを選択して、問題に挑戦し、敵を倒しましょう！",
     },
 
+    detail: {
+      title: "10分野・3系統・ラストボスとは",
+      description:
+        "10分野：①企業活動・経営 ②法務・知的財産 ③システム戦略 ④プロジェクト管理 ⑤サービスマネジメント ⑥システム開発 ⑦コンピュータ基礎 ⑧ネットワーク ⑨データベース ⑩セキュリティ\n3系統：①ストラテジ系 ②マネジメント系 ③テクノロジ系\nラストボス：ITパスポート全範囲",
+    },
+
     battle: {
       title: "バトルのルール",
       description:
@@ -68,6 +74,13 @@ function Help({ isOpen, onClose }) {
               onClick={() => setSelected("progress")}
             >
               ▶ ゲームの進め方
+            </button>
+
+            <button
+              className={selected === "detail" ? "active" : ""}
+              onClick={() => setSelected("detail")}
+            >
+              ▶ 10分野・3系統・ラストボスとは
             </button>
 
             <button
