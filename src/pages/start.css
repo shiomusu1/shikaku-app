@@ -494,7 +494,7 @@
 
 
 .help-open-button {
-  position: absolute;
+  position: fixed;
   top: 60%;
   right: 44%;
   z-index: 100;
@@ -553,17 +553,20 @@
 }
 
 /* 雲が晴れる前 */
-.help-open-button {
-  position: fixed;
-  top: 20px;
-  right: 25px;
-  z-index: 100;
-
-  transition: 0.5s;
+.help-open-button.before-reveal {
+  top: calc(50% + 45px);
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* 雲が晴れた後 */
 .help-open-button.after-reveal {
   top: 20px;
   right: 25px;
+  left: auto;
+  transform: none;
+}
+
+.help-open-button:hover {
+  filter: brightness(1.2);
 }

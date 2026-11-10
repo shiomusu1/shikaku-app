@@ -132,7 +132,7 @@ function Start() {
 
       {/* 遊び方ボタン */}
       <button
-        className={`help-open-button ${revealed ? "after-reveal" : ""}`}
+        className={`help-open-button ${revealed ? "after-reveal" : "before-reveal"}`}
         onClick={(e) => {
           e.stopPropagation();
           setShowHelp(true);
