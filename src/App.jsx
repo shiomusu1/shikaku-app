@@ -15,7 +15,7 @@ import LastBossWeak from './pages/lastbossweak';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/shikaku-app">
       <Routes>
         <Route path="/"element={<Start />}/>
         <Route path="/start" element={<Start />} />
