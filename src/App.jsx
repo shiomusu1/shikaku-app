@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Start from './pages/start';
 import Eriasentaku from './pages/eriasentaku';
-import Battle from './pages/battle';
+import Battle from './pages/Battle';
 import BattleOrWeak from './pages/BattleOrWeak';
 import Weak from './pages/Weak';
 
-import Boss from './pages/Boss';
+import Boss from './pages/boss';
 import BossBattleOrWeak from './pages/BossBattleOrWeak';
 import BossBattle from './pages/BossBattle';
 import BossWeak from './pages/BossWeak';
