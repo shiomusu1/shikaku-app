@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import areaBackground from "../assets/forest.jpg";
-import './Eriasentaku.css';
+import './eriasentaku.css';
 
 function Eriasentaku() {
   const navigate = useNavigate();
