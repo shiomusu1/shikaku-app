@@ -426,7 +426,7 @@ const bossTechnology = [
   {
     title: "テクノロジ系ボス",
     question:`情報セキュリティに関する次の記述中のa, bに入れる字句の適切な組合せはどれか。`,
-    image:"/image/question10-3.png",
+    image:`${import.meta.env.BASE_URL}/image/question10-3.png`,
     choices: [
       "a...インシデント,b...リスク",
       "a...脅威,b...脆弱性",
