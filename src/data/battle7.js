@@ -63,7 +63,7 @@ const questions = [
   {
     title: "コンピュータ基礎",
     question:`手続 sort は、要素数が2以上の整数型の配列を引数 numberArray で受け取り、その要素を昇順に並べ替えた結果を出力する。手続 sort の動作確認のために、処理の途中でjの値と workArray の全ての要素を出力する。配列 numberArray を {3, 5, 1, 2, 4}とし、手続 sort を sort (numberArray)として呼び出したとき、jの値が3と出力された直後の workArray の全ての要素の出力はどれか。ここで、配列の要素番号は1から始まる。`,
-    image:"/image/question7-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question7-1.png`,
     choices: [
       "1, 2, 3, 4, 5",
       "1, 2, 3, 5, 4",
@@ -76,7 +76,7 @@ const questions = [
   {
     title: "コンピュータ基礎",
     question:`表計算ソフトを用いて、二つの2進数α, βの和を求める。a, の桁数は2桁に限定し、2の位、1の位の順に各桁の値がセル B3, セル C3とセル B4, セルC4に入力されている。ワークシートは2進数 α=10, β=11 の例である。結果は、4の位、2の位、1の位の順にセル A5, セル B5, セル C5に表示したい。セルB2は1の位からの繰り上がりの情報を格納するために用いられ、式 IF(C3+C4=2,1,0) が入力されている。セル B5に入力する式はどれか。`,
-    image:"/image/question7-2.png",
+    image:`${import.meta.env.BASE_URL}/image/question7-2.png`,
     choices: [
       "IF (合計(B2:B4) < 2, 合計(B2:B4), IF(合計(B2:B4)=2,0,1))",
       "IF (合計(B2:B4) < 2, 合計(B2:B4), IF(合計(B2:B4)=2,1,0))",
@@ -113,7 +113,7 @@ const questions = [
   {
     title: "コンピュータ基礎",
     question:`関数 isPrime は、引数として与えられた正の整数が、素数であれば true を、素数でなければ false を戻り値とする。プログラム中のa, bに入れる字句の適切な組合せはどれか。`,
-    image:"/image/question7-3.png",
+    image:`${import.meta.env.BASE_URL}/image/question7-3.png`,
     choices: [
       "a...以下,b...と等しい",
       "a...以下,b...より大きい",
@@ -126,7 +126,7 @@ const questions = [
   {
     title: "コンピュータ基礎",
     question:`プログラミングすることによって、ペンの上げ下げ、直進及び右回りの方向転換が可能なロボットがある。このロボットに1辺が1mの正六角形を描画させるプログラムを作成した。次の正六角形描画プログラムのa, bに入れる字句の適切な組合せはどれか。`,
-    image:"/image/question7-4.png",
+    image:`${import.meta.env.BASE_URL}/image/question7-4.png`,
     choices: [
       "a...0,b...60",
       "a...0,b...120",

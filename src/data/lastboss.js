@@ -29,7 +29,7 @@ const lastboss = [
   {
     title: "",
     question: `投資会社であるA社が、それぞれの投資戦略を採る場合の利益は、表のように予想される。A社がマクシミン戦略を採り、かつ、市況が好転した場合の利益はどれか。マクシミン戦略とは、戦略ごとに予想される利益の最小値が最も大きくなるように戦略を採用する理論である。`,
-    image:"/image/question1-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question1-1.png`,
     choices: [
       "-15",
       "0",
@@ -315,7 +315,7 @@ const lastboss = [
   {
     title: "",
     question:`表はA社の貸借対照表である。A社の自己資本比率は何%か。`,
-    image:"/image/question1-2.png",
+    image:`${import.meta.env.BASE_URL}/image/question1-2.png`,
     choices: [
       "30",
       "50",
@@ -543,7 +543,7 @@ const lastboss = [
   {
     title: "",
     question:`あるサービスデスクでは、電子メールによる問合せに対応しており、受付担当者がメールの内容を確認し、回答担当者の割当てをしていた。このたび、割当て業務の効率化を目的に、自動割当てツールを導入した。自動割当てツールは、メールの内容を基に自動で回答担当者の割当てを行うが、割当てができないことや割当てミスをすることがあり、それらについては、人手で対応している。導入前及び導入半年後の状況が次のとき、割当ての時間はサービスデスク全体で何%削減できたか。ここで、割当ての時間の削減率 (%) は小数第1位を四捨五入するものとする。`,
-    image:"/image/question5-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question5-1.png`,
     choices: [
       "80",
       "81",
@@ -621,7 +621,7 @@ const lastboss = [
   {
     title: "",
     question:`次の表の作業を3名で実施するとき、全ての作業を終わらせるのに必要な最短の日数は何日か。ここで、複数要員が必要な作業は全員がそろわないと着手できず、指定された要員数以上の要員を充てても所要日数は短縮できない。また、着手した作業は作業が完了するまで中断できないものとする。`,
-    image:"/image/question4-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question4-1.png`,
     choices: [
       "9日",
       "12日",
@@ -687,7 +687,7 @@ const lastboss = [
   {
     title: "",
     question:`IoT のセキュリティに関する次の記述中のa, bに入れる字句の適切な組合せはどれか。`,
-    image:"/image/question10-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question10-1.png`,
     choices: [
       "a...DDoS 攻撃,b...初期パスワード",
       "a...DDoS 攻撃,b...有線回線",
@@ -712,7 +712,7 @@ const lastboss = [
   {
     title: "",
     question:`関係データベースで管理している“学生”表,“科目”表,“成績”表がある。1人の学生は複数の科目を履修するものとし、“学生”表に登録されていない学生や、“科目”表に登録されていない科目は“成績”表に登録できないものとするとき、外部キーとして設定するのが適切なものはどれか。`,
-    image:"/image/question9-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question9-1.png`,
     choices: [
       "“学生”表の学生番号,“成績”表の学生番号",
       "“学生”表の学生名,“科目”表の科目名",
@@ -833,7 +833,7 @@ const lastboss = [
   {
     title: "",
     question:`手続 sort は、要素数が2以上の整数型の配列を引数 numberArray で受け取り、その要素を昇順に並べ替えた結果を出力する。手続 sort の動作確認のために、処理の途中でjの値と workArray の全ての要素を出力する。配列 numberArray を {3, 5, 1, 2, 4}とし、手続 sort を sort (numberArray)として呼び出したとき、jの値が3と出力された直後の workArray の全ての要素の出力はどれか。ここで、配列の要素番号は1から始まる。`,
-    image:"/image/question7-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question7-1.png`,
     choices: [
       "1, 2, 3, 4, 5",
       "1, 2, 3, 5, 4",
@@ -858,7 +858,7 @@ const lastboss = [
   {
     title: "",
     question:`関係データベースにおけるデータの正規化に関する次の記述中のa, bに入れる字句の適切な組合せはどれか。`,
-    image:"/image/question9-2.png",
+    image:`${import.meta.env.BASE_URL}/image/question9-2.png`,
     choices: [
       "a...圧縮率を向上させる,b...一つの表が複数の表に分割される",
       "a...圧縮率を向上させる,b...複数の表が一つの表に統合される",
@@ -895,7 +895,7 @@ const lastboss = [
   {
     title: "",
     question:`関係データベースで管理している“口座”表,“顧客”表及び“取引明細”表がある。新たな顧客が口座の開設と同時に1万円を入金するとき、表にデータを追加する順序として、適切なものはどれか。`,
-    image:"/image/question9-3.png",
+    image:`${import.meta.env.BASE_URL}/image/question9-3.png`,
     choices: [
       "口座 → 顧客 → 取引明細",
       "顧客 → 口座 → 取引明細",
@@ -920,7 +920,7 @@ const lastboss = [
   {
     title: "",
     question:`表計算ソフトを用いて、二つの2進数α, βの和を求める。a, の桁数は2桁に限定し、2の位、1の位の順に各桁の値がセル B3, セル C3とセル B4, セルC4に入力されている。ワークシートは2進数 α=10, β=11 の例である。結果は、4の位、2の位、1の位の順にセル A5, セル B5, セル C5に表示したい。セルB2は1の位からの繰り上がりの情報を格納するために用いられ、式 IF(C3+C4=2,1,0) が入力されている。セル B5に入力する式はどれか。`,
-    image:"/image/question7-2.png",
+    image:`${import.meta.env.BASE_URL}/image/question7-2.png`,
     choices: [
       "IF (合計(B2:B4) < 2, 合計(B2:B4), IF(合計(B2:B4)=2,0,1))",
       "IF (合計(B2:B4) < 2, 合計(B2:B4), IF(合計(B2:B4)=2,1,0))",
@@ -945,7 +945,7 @@ const lastboss = [
   {
     title: "",
     question:`IoT デバイスで用いられる LPWA に関する次の記述中の a, b に入れる字句の適切な組合せはどれか。`,
-    image:"/image/question8-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question8-1.png`,
     choices: [
       "a...狭く,b...多い",
       "a...狭く,b...少ない",
@@ -994,7 +994,7 @@ const lastboss = [
   {
     title: "",
     question:`バイオメトリクス認証に関する次の記述中の a, b に入れる字句の適切な組合せはどれか。`,
-    image:"/image/question10-2.png",
+    image:`${import.meta.env.BASE_URL}/image/question10-2.png`,
     choices: [
       "a...高く,b...高く",
       "a...高く,b...低く",
@@ -1059,7 +1059,7 @@ const lastboss = [
   {
     title: "",
     question:`関数 isPrime は、引数として与えられた正の整数が、素数であれば true を、素数でなければ false を戻り値とする。プログラム中のa, bに入れる字句の適切な組合せはどれか。`,
-    image:"/image/question7-3.png",
+    image:`${import.meta.env.BASE_URL}/image/question7-3.png`,
     choices: [
       "a...以下,b...と等しい",
       "a...以下,b...より大きい",
@@ -1096,7 +1096,7 @@ const lastboss = [
   {
     title: "",
     question:`プログラミングすることによって、ペンの上げ下げ、直進及び右回りの方向転換が可能なロボットがある。このロボットに1辺が1mの正六角形を描画させるプログラムを作成した。次の正六角形描画プログラムのa, bに入れる字句の適切な組合せはどれか。`,
-    image:"/image/question7-4.png",
+    image:`${import.meta.env.BASE_URL}/image/question7-4.png`,
     choices: [
       "a...0,b...60",
       "a...0,b...120",
@@ -1109,7 +1109,7 @@ const lastboss = [
   {
     title: "",
     question:`情報セキュリティに関する次の記述中のa, bに入れる字句の適切な組合せはどれか。`,
-    image:"/image/question10-3.png",
+    image:`${import.meta.env.BASE_URL}/image/question10-3.png`,
     choices: [
       "a...インシデント,b...リスク",
       "a...脅威,b...脆弱性",
@@ -1233,7 +1233,7 @@ const lastboss = [
   {
     title: "",
     question:`入力装置に関する次の記述中のa,bに入れる字句の適切な組み合わせはどれか。`,
-    image:"/image/question10-4.png",
+    image:`${import.meta.env.BASE_URL}/image/question10-4.png`,
     choices: [
       "a...イメージスキャナー,b...bps",
       "a...イメージスキャナー,b...dpi",

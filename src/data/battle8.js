@@ -51,7 +51,7 @@ const questions = [
   {
     title: "ネットワーク",
     question:`IoT デバイスで用いられる LPWA に関する次の記述中の a, b に入れる字句の適切な組合せはどれか。`,
-    image:"/image/question8-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question8-1.png`,
     choices: [
       "a...狭く,b...多い",
       "a...狭く,b...少ない",

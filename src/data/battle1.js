@@ -14,7 +14,7 @@ const questions = [
   {
     title: "企業活動・経営",
     question: `投資会社であるA社が、それぞれの投資戦略を採る場合の利益は、表のように予想される。A社がマクシミン戦略を採り、かつ、市況が好転した場合の利益はどれか。マクシミン戦略とは、戦略ごとに予想される利益の最小値が最も大きくなるように戦略を採用する理論である。`,
-    image:"/image/question1-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question1-1.png`,
     choices: [
       "-15",
       "0",
@@ -178,7 +178,7 @@ const questions = [
   {
     title: "企業活動・経営",
     question:`表はA社の貸借対照表である。A社の自己資本比率は何%か。`,
-    image:"/image/question1-2.png",
+    image:`${import.meta.env.BASE_URL}/image/question1-2.png`,
     choices: [
       "30",
       "50",

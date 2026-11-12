@@ -15,7 +15,7 @@ const questions = [
   {
     title: "データベース",
     question:`関係データベースで管理している“学生”表,“科目”表,“成績”表がある。1人の学生は複数の科目を履修するものとし、“学生”表に登録されていない学生や、“科目”表に登録されていない科目は“成績”表に登録できないものとするとき、外部キーとして設定するのが適切なものはどれか。`,
-    image:"/image/question9-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question9-1.png`,
     choices: [
       "“学生”表の学生番号,“成績”表の学生番号",
       "“学生”表の学生名,“科目”表の科目名",
@@ -28,7 +28,7 @@ const questions = [
   {
     title: "データベース",
     question:`関係データベースにおけるデータの正規化に関する次の記述中のa, bに入れる字句の適切な組合せはどれか。`,
-    image:"/image/question9-2.png",
+    image:`${import.meta.env.BASE_URL}/image/question9-2.png`,
     choices: [
       "a...圧縮率を向上させる,b...一つの表が複数の表に分割される",
       "a...圧縮率を向上させる,b...複数の表が一つの表に統合される",
@@ -41,7 +41,7 @@ const questions = [
   {
     title: "データベース",
     question:`関係データベースで管理している“口座”表,“顧客”表及び“取引明細”表がある。新たな顧客が口座の開設と同時に1万円を入金するとき、表にデータを追加する順序として、適切なものはどれか。`,
-    image:"/image/question9-3.png",
+    image:`${import.meta.env.BASE_URL}/image/question9-3.png`,
     choices: [
       "口座 → 顧客 → 取引明細",
       "顧客 → 口座 → 取引明細",

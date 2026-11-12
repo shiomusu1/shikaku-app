@@ -66,7 +66,7 @@ const questions = [
   {
     title: "プロジェクト管理",
     question:`次の表の作業を3名で実施するとき、全ての作業を終わらせるのに必要な最短の日数は何日か。ここで、複数要員が必要な作業は全員がそろわないと着手できず、指定された要員数以上の要員を充てても所要日数は短縮できない。また、着手した作業は作業が完了するまで中断できないものとする。`,
-    image:"/image/question4-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question4-1.png`,
     choices: [
       "9日",
       "12日",

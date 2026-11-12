@@ -3,7 +3,7 @@ const questions = [
   {
     title: "セキュリティ",
     question:`IoT のセキュリティに関する次の記述中のa, bに入れる字句の適切な組合せはどれか。`,
-    image:"/image/question10-1.png",
+    image:`${import.meta.env.BASE_URL}/image/question10-1.png`,
     choices: [
       "a...DDoS 攻撃,b...初期パスワード",
       "a...DDoS 攻撃,b...有線回線",
@@ -76,7 +76,7 @@ const questions = [
   {
     title: "セキュリティ",
     question:`バイオメトリクス認証に関する次の記述中の a, b に入れる字句の適切な組合せはどれか。`,
-    image:"/image/question10-2.png",
+    image:`${import.meta.env.BASE_URL}/image/question10-2.png`,
     choices: [
       "a...高く,b...高く",
       "a...高く,b...低く",
@@ -105,7 +105,7 @@ const questions = [
   {
     title: "セキュリティ",
     question:`情報セキュリティに関する次の記述中のa, bに入れる字句の適切な組合せはどれか。`,
-    image:"/image/question10-3.png",
+    image:`${import.meta.env.BASE_URL}/image/question10-3.png`,
     choices: [
       "a...インシデント,b...リスク",
       "a...脅威,b...脆弱性",
