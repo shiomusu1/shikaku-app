@@ -18,13 +18,13 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function Battle() {
   
-  //画面遷移機能を準備
+  //画面遷移機能の準備
 const navigate = useNavigate();
 
   // URLからバトル番号を取得する
 const { battleId } = useParams();
 
-  // それぞれぼバトルの問題データ
+  // それぞれのバトルの問題データ
 const questionData = {
   1: battle1,
   2: battle2,

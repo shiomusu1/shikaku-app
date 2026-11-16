@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Start from './pages/start';
 import Eriasentaku from './pages/eriasentaku';
 import Battle from './pages/Battle';
@@ -15,7 +15,7 @@ import LastBossWeak from './pages/lastbossweak';
 
 function App() {
   return (
-    <BrowserRouter basename="/shikaku-app">
+    <HashRouter>
       <Routes>
         <Route path="/"element={<Start />}/>
         <Route path="/start" element={<Start />} />
@@ -36,7 +36,7 @@ function App() {
         <Route path="/lastbossweak" element={<LastBossWeak />} />
 
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
